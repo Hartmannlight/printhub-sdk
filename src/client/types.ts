@@ -1,0 +1,18 @@
+import type { components } from "../generated/schema";
+
+export type RenderTarget = components["schemas"]["RenderTarget"];
+export type RenderRequest = components["schemas"]["RenderRequest"];
+export type RenderResponse = components["schemas"]["RenderResponse"];
+export type PrintZplRequest = components["schemas"]["PrintZplRequest"];
+export type PrintTemplateRequest = components["schemas"]["PrintTemplateRequest"];
+export type PrintResponse = components["schemas"]["PrintResponse"];
+export type PrinterStatusResponse = components["schemas"]["PrinterStatusResponse"];
+export type PrintDraftCreateRequest = components["schemas"]["PrintDraftCreateRequest"];
+export type PrintDraftResponse = components["schemas"]["PrintDraftResponse"];
+export type PrintDraftDetailResponse = components["schemas"]["PrintDraftDetailResponse"];
+export type TemplateSaveRequest = components["schemas"]["TemplateSaveRequest"];
+export type TemplateListItem = components["schemas"]["TemplateListItem"];
+export type TemplateDetailResponse = components["schemas"]["TemplateDetailResponse"];
+export type PrintersConfigResponse = components["schemas"]["PrintersConfigResponse"];
+export type HTTPValidationError = components["schemas"]["HTTPValidationError"];
+export type ValidationError = components["schemas"]["ValidationError"];
