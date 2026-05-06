@@ -5,6 +5,10 @@
 
 
 export interface paths {
+  "/health": {
+    /** Health */
+    get: operations["health_health_get"];
+  };
   "/v1/renders/zpl": {
     /** Render Zpl */
     post: operations["render_zpl_v1_renders_zpl_post"];
@@ -314,6 +318,19 @@ export type external = Record<string, never>;
 
 export interface operations {
 
+  /** Health */
+  health_health_get: {
+    responses: {
+      /** @description Successful Response */
+      200: {
+        content: {
+          "application/json": {
+            [key: string]: string;
+          };
+        };
+      };
+    };
+  };
   /** Render Zpl */
   render_zpl_v1_renders_zpl_post: {
     requestBody: {
