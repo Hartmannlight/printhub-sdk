@@ -30,11 +30,15 @@ export declare const createPrintersClient: ({ generated }: PrinthubSdkDependenci
         printer_id: string;
         bytes_sent: number;
         preview_png_base64?: string | null;
+        job_id?: string | null;
+        job_state?: string | null;
     }>;
     printTemplate: (printerId: string, body: PrintTemplateRequest) => Promise<{
         printer_id: string;
         bytes_sent: number;
         preview_png_base64?: string | null;
+        job_id?: string | null;
+        job_state?: string | null;
     }>;
 };
 //# sourceMappingURL=printers.d.ts.map

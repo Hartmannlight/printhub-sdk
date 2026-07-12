@@ -52,11 +52,69 @@ export declare const createPrinthubSdk: (config: PrinthubSdkConfig) => {
             printer_id: string;
             bytes_sent: number;
             preview_png_base64?: string | null;
+            job_id?: string | null;
+            job_state?: string | null;
         }>;
         printTemplate: (printerId: string, body: import("./types").PrintTemplateRequest) => Promise<{
             printer_id: string;
             bytes_sent: number;
             preview_png_base64?: string | null;
+            job_id?: string | null;
+            job_state?: string | null;
+        }>;
+    };
+    printJobs: {
+        list: (limit?: number) => Promise<{
+            id: string;
+            status: string;
+            printer_id: string;
+            template_id: string;
+            attempts: number;
+            bytes_sent?: number | null;
+            downstream_job_id?: string | null;
+            downstream_job_state?: string | null;
+            error?: string | null;
+            created_at: string;
+            updated_at: string;
+        }[]>;
+        get: (jobId: string) => Promise<{
+            id: string;
+            status: string;
+            printer_id: string;
+            template_id: string;
+            attempts: number;
+            bytes_sent?: number | null;
+            downstream_job_id?: string | null;
+            downstream_job_state?: string | null;
+            error?: string | null;
+            created_at: string;
+            updated_at: string;
+        }>;
+        create: (body: import("./types").PrintJobCreateRequest) => Promise<{
+            id: string;
+            status: string;
+            printer_id: string;
+            template_id: string;
+            attempts: number;
+            bytes_sent?: number | null;
+            downstream_job_id?: string | null;
+            downstream_job_state?: string | null;
+            error?: string | null;
+            created_at: string;
+            updated_at: string;
+        }>;
+        retry: (jobId: string) => Promise<{
+            id: string;
+            status: string;
+            printer_id: string;
+            template_id: string;
+            attempts: number;
+            bytes_sent?: number | null;
+            downstream_job_id?: string | null;
+            downstream_job_state?: string | null;
+            error?: string | null;
+            created_at: string;
+            updated_at: string;
         }>;
     };
     renders: {

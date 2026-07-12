@@ -3,675 +3,1243 @@
  * Do not make direct changes to the file.
  */
 
-
 export interface paths {
-  "/health": {
-    /** Health */
-    get: operations["health_health_get"];
-  };
-  "/v1/renders/zpl": {
-    /** Render Zpl */
-    post: operations["render_zpl_v1_renders_zpl_post"];
-  };
-  "/v1/renders/png": {
-    /** Render Png */
-    post: operations["render_png_v1_renders_png_post"];
-  };
-  "/v1/printers/{printer_id}/prints/zpl": {
-    /** Print Zpl */
-    post: operations["print_zpl_v1_printers__printer_id__prints_zpl_post"];
-  };
-  "/v1/drafts": {
-    /** Create Print Draft */
-    post: operations["create_print_draft_v1_drafts_post"];
-  };
-  "/v1/drafts/{draft_id}": {
-    /** Get Print Draft */
-    get: operations["get_print_draft_v1_drafts__draft_id__get"];
-  };
-  "/v1/printers/{printer_id}/prints/template": {
-    /** Print Template */
-    post: operations["print_template_v1_printers__printer_id__prints_template_post"];
-  };
-  "/v1/printers/{printer_id}/status": {
-    /** Get Printer Status */
-    get: operations["get_printer_status_v1_printers__printer_id__status_get"];
-  };
-  "/v1/templates": {
-    /** List Template Entries */
-    get: operations["list_template_entries_v1_templates_get"];
-    /** Save Template */
-    post: operations["save_template_v1_templates_post"];
-  };
-  "/v1/templates/{template_id}": {
-    /** Get Template Entry */
-    get: operations["get_template_entry_v1_templates__template_id__get"];
-    /** Update Template */
-    put: operations["update_template_v1_templates__template_id__put"];
-  };
-  "/v1/templates/{template_id}/preview": {
-    /** Get Template Preview */
-    get: operations["get_template_preview_v1_templates__template_id__preview_get"];
-  };
-  "/v1/printers": {
-    /** Get Printers */
-    get: operations["get_printers_v1_printers_get"];
-  };
-  "/v1/printers/{printer_id}": {
-    /** Get Printer */
-    get: operations["get_printer_v1_printers__printer_id__get"];
-    /** Upsert Printer */
-    put: operations["upsert_printer_v1_printers__printer_id__put"];
-  };
+    "/health": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /** Health */
+        get: operations["health_health_get"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/v1/renders/zpl": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        /** Render Zpl */
+        post: operations["render_zpl_v1_renders_zpl_post"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/v1/renders/png": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        /** Render Png */
+        post: operations["render_png_v1_renders_png_post"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/v1/printers/{printer_id}/prints/zpl": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        /** Print Zpl */
+        post: operations["print_zpl_v1_printers__printer_id__prints_zpl_post"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/v1/drafts": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        /** Create Print Draft */
+        post: operations["create_print_draft_v1_drafts_post"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/v1/drafts/{draft_id}": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /** Get Print Draft */
+        get: operations["get_print_draft_v1_drafts__draft_id__get"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/v1/printers/{printer_id}/prints/template": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        /** Print Template */
+        post: operations["print_template_v1_printers__printer_id__prints_template_post"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/v1/print-jobs": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /** Get Print Jobs */
+        get: operations["get_print_jobs_v1_print_jobs_get"];
+        put?: never;
+        /** Create Print Job */
+        post: operations["create_print_job_v1_print_jobs_post"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/v1/print-jobs/{job_id}": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /** Get Print Job */
+        get: operations["get_print_job_v1_print_jobs__job_id__get"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/v1/print-jobs/{job_id}/retry": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        /** Retry Print Job */
+        post: operations["retry_print_job_v1_print_jobs__job_id__retry_post"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/v1/printers/{printer_id}/status": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /** Get Printer Status */
+        get: operations["get_printer_status_v1_printers__printer_id__status_get"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/v1/templates": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /** List Template Entries */
+        get: operations["list_template_entries_v1_templates_get"];
+        put?: never;
+        /** Save Template */
+        post: operations["save_template_v1_templates_post"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/v1/templates/{template_id}": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /** Get Template Entry */
+        get: operations["get_template_entry_v1_templates__template_id__get"];
+        /** Update Template */
+        put: operations["update_template_v1_templates__template_id__put"];
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/v1/templates/{template_id}/preview": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /** Get Template Preview */
+        get: operations["get_template_preview_v1_templates__template_id__preview_get"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/v1/printers": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /** Get Printers */
+        get: operations["get_printers_v1_printers_get"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/v1/zebra-tamer/agents": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /** Get Zebra Tamer Agents */
+        get: operations["get_zebra_tamer_agents_v1_zebra_tamer_agents_get"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/v1/printers/{printer_id}": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /** Get Printer */
+        get: operations["get_printer_v1_printers__printer_id__get"];
+        /** Upsert Printer */
+        put: operations["upsert_printer_v1_printers__printer_id__put"];
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
 }
-
 export type webhooks = Record<string, never>;
-
 export interface components {
-  schemas: {
-    /** HTTPValidationError */
-    HTTPValidationError: {
-      /** Detail */
-      detail?: components["schemas"]["ValidationError"][];
+    schemas: {
+        /** HTTPValidationError */
+        HTTPValidationError: {
+            /** Detail */
+            detail?: components["schemas"]["ValidationError"][];
+        };
+        /** PrintDraftCreateRequest */
+        PrintDraftCreateRequest: {
+            /** Template */
+            template: {
+                [key: string]: unknown;
+            };
+            /** Variables */
+            variables?: {
+                [key: string]: unknown;
+            };
+            target: components["schemas"]["RenderTarget"];
+            /**
+             * Debug
+             * @default false
+             */
+            debug: boolean;
+        };
+        /** PrintDraftDetailResponse */
+        PrintDraftDetailResponse: {
+            /** Draft Id */
+            draft_id: string;
+            /** Template */
+            template: {
+                [key: string]: unknown;
+            };
+            /** Variables */
+            variables: {
+                [key: string]: unknown;
+            };
+            target: components["schemas"]["RenderTarget"];
+            /** Debug */
+            debug: boolean;
+            /** Created At */
+            created_at: string;
+            /** Expires At */
+            expires_at: string;
+        };
+        /** PrintDraftResponse */
+        PrintDraftResponse: {
+            /** Draft Id */
+            draft_id: string;
+            /** Expires At */
+            expires_at: string;
+        };
+        /** PrintJobCreateRequest */
+        PrintJobCreateRequest: {
+            /** Printer Id */
+            printer_id: string;
+            /** Template Id */
+            template_id: string;
+            /** Variables */
+            variables?: {
+                [key: string]: unknown;
+            };
+            target?: components["schemas"]["RenderTarget"] | null;
+            /** Idempotency Key */
+            idempotency_key?: string | null;
+            /** Origin */
+            origin?: string | null;
+        };
+        /** PrintJobResponse */
+        PrintJobResponse: {
+            /** Id */
+            id: string;
+            /** Status */
+            status: string;
+            /** Printer Id */
+            printer_id: string;
+            /** Template Id */
+            template_id: string;
+            /** Attempts */
+            attempts: number;
+            /** Bytes Sent */
+            bytes_sent?: number | null;
+            /** Downstream Job Id */
+            downstream_job_id?: string | null;
+            /** Downstream Job State */
+            downstream_job_state?: string | null;
+            /** Error */
+            error?: string | null;
+            /** Created At */
+            created_at: string;
+            /** Updated At */
+            updated_at: string;
+        };
+        /** PrintResponse */
+        PrintResponse: {
+            /** Printer Id */
+            printer_id: string;
+            /** Bytes Sent */
+            bytes_sent: number;
+            /** Preview Png Base64 */
+            preview_png_base64?: string | null;
+            /** Job Id */
+            job_id?: string | null;
+            /** Job State */
+            job_state?: string | null;
+        };
+        /** PrintTemplateRequest */
+        PrintTemplateRequest: {
+            /** Template */
+            template: {
+                [key: string]: unknown;
+            };
+            /** Variables */
+            variables?: {
+                [key: string]: unknown;
+            };
+            /**
+             * Debug
+             * @default false
+             */
+            debug: boolean;
+            target?: components["schemas"]["RenderTarget"] | null;
+            /**
+             * Return Preview
+             * @default false
+             */
+            return_preview: boolean;
+        };
+        /** PrintZplRequest */
+        PrintZplRequest: {
+            /** Zpl */
+            zpl: string;
+            /**
+             * Return Preview
+             * @default false
+             */
+            return_preview: boolean;
+        };
+        /** PrinterStatusResponse */
+        PrinterStatusResponse: {
+            /** Printer Id */
+            printer_id: string;
+            /** Raw */
+            raw: {
+                [key: string]: string;
+            };
+            /** Parsed */
+            parsed: {
+                [key: string]: unknown;
+            };
+            /** Normalized */
+            normalized: {
+                [key: string]: unknown;
+            };
+        };
+        /** PrintersConfigResponse */
+        PrintersConfigResponse: {
+            /** Config Version */
+            config_version: number;
+            /** Printers */
+            printers: {
+                [key: string]: unknown;
+            }[];
+        };
+        /** RenderRequest */
+        RenderRequest: {
+            /** Template */
+            template: {
+                [key: string]: unknown;
+            };
+            target: components["schemas"]["RenderTarget"];
+            /** Variables */
+            variables?: {
+                [key: string]: unknown;
+            };
+            /**
+             * Debug
+             * @default false
+             */
+            debug: boolean;
+        };
+        /** RenderResponse */
+        RenderResponse: {
+            /** Zpl */
+            zpl: string;
+        };
+        /** RenderTarget */
+        RenderTarget: {
+            /** Width Mm */
+            width_mm: number;
+            /** Height Mm */
+            height_mm: number;
+            /**
+             * Dpi
+             * @default 203
+             */
+            dpi: number;
+            /**
+             * Origin X Mm
+             * @default 0
+             */
+            origin_x_mm: number;
+            /**
+             * Origin Y Mm
+             * @default 0
+             */
+            origin_y_mm: number;
+        };
+        /** TemplateDetailResponse */
+        TemplateDetailResponse: {
+            /** Id */
+            id: string;
+            /** Name */
+            name: string;
+            /** Tags */
+            tags: string[];
+            /** Variables */
+            variables: {
+                [key: string]: unknown;
+            }[];
+            /** Preview Target */
+            preview_target: {
+                [key: string]: unknown;
+            };
+            /** Preview Available */
+            preview_available: boolean;
+            /** Template */
+            template: {
+                [key: string]: unknown;
+            };
+            /** Sample Data */
+            sample_data: {
+                [key: string]: unknown;
+            };
+        };
+        /** TemplateListItem */
+        TemplateListItem: {
+            /** Id */
+            id: string;
+            /** Name */
+            name: string;
+            /** Tags */
+            tags: string[];
+            /** Variables */
+            variables: {
+                [key: string]: unknown;
+            }[];
+            /** Preview Target */
+            preview_target: {
+                [key: string]: unknown;
+            };
+            /** Preview Available */
+            preview_available: boolean;
+        };
+        /** TemplateSaveRequest */
+        TemplateSaveRequest: {
+            /** Name */
+            name: string;
+            /** Tags */
+            tags?: string[];
+            /** Variables */
+            variables?: {
+                [key: string]: unknown;
+            }[];
+            /** Template */
+            template: {
+                [key: string]: unknown;
+            };
+            /** Sample Data */
+            sample_data: {
+                [key: string]: unknown;
+            };
+            preview_target: components["schemas"]["RenderTarget"];
+        };
+        /** ValidationError */
+        ValidationError: {
+            /** Location */
+            loc: (string | number)[];
+            /** Message */
+            msg: string;
+            /** Error Type */
+            type: string;
+        };
     };
-    /** PrintDraftCreateRequest */
-    PrintDraftCreateRequest: {
-      /** Template */
-      template: {
-        [key: string]: unknown;
-      };
-      /** Variables */
-      variables?: {
-        [key: string]: unknown;
-      };
-      target: components["schemas"]["RenderTarget"];
-      /**
-       * Debug
-       * @default false
-       */
-      debug?: boolean;
-    };
-    /** PrintDraftDetailResponse */
-    PrintDraftDetailResponse: {
-      /** Draft Id */
-      draft_id: string;
-      /** Template */
-      template: {
-        [key: string]: unknown;
-      };
-      /** Variables */
-      variables: {
-        [key: string]: unknown;
-      };
-      target: components["schemas"]["RenderTarget"];
-      /** Debug */
-      debug: boolean;
-      /** Created At */
-      created_at: string;
-      /** Expires At */
-      expires_at: string;
-    };
-    /** PrintDraftResponse */
-    PrintDraftResponse: {
-      /** Draft Id */
-      draft_id: string;
-      /** Expires At */
-      expires_at: string;
-    };
-    /** PrintResponse */
-    PrintResponse: {
-      /** Printer Id */
-      printer_id: string;
-      /** Bytes Sent */
-      bytes_sent: number;
-      /** Preview Png Base64 */
-      preview_png_base64?: string | null;
-    };
-    /** PrintTemplateRequest */
-    PrintTemplateRequest: {
-      /** Template */
-      template: {
-        [key: string]: unknown;
-      };
-      /** Variables */
-      variables?: {
-        [key: string]: unknown;
-      };
-      /**
-       * Debug
-       * @default false
-       */
-      debug?: boolean;
-      target?: components["schemas"]["RenderTarget"] | null;
-      /**
-       * Return Preview
-       * @default false
-       */
-      return_preview?: boolean;
-    };
-    /** PrintZplRequest */
-    PrintZplRequest: {
-      /** Zpl */
-      zpl: string;
-      /**
-       * Return Preview
-       * @default false
-       */
-      return_preview?: boolean;
-    };
-    /** PrinterStatusResponse */
-    PrinterStatusResponse: {
-      /** Printer Id */
-      printer_id: string;
-      /** Raw */
-      raw: {
-        [key: string]: string;
-      };
-      /** Parsed */
-      parsed: {
-        [key: string]: unknown;
-      };
-      /** Normalized */
-      normalized: {
-        [key: string]: unknown;
-      };
-    };
-    /** PrintersConfigResponse */
-    PrintersConfigResponse: {
-      /** Config Version */
-      config_version: number;
-      /** Printers */
-      printers: {
-          [key: string]: unknown;
-        }[];
-    };
-    /** RenderRequest */
-    RenderRequest: {
-      /** Template */
-      template: {
-        [key: string]: unknown;
-      };
-      target: components["schemas"]["RenderTarget"];
-      /** Variables */
-      variables?: {
-        [key: string]: unknown;
-      };
-      /**
-       * Debug
-       * @default false
-       */
-      debug?: boolean;
-    };
-    /** RenderResponse */
-    RenderResponse: {
-      /** Zpl */
-      zpl: string;
-    };
-    /** RenderTarget */
-    RenderTarget: {
-      /** Width Mm */
-      width_mm: number;
-      /** Height Mm */
-      height_mm: number;
-      /**
-       * Dpi
-       * @default 203
-       */
-      dpi?: number;
-      /**
-       * Origin X Mm
-       * @default 0
-       */
-      origin_x_mm?: number;
-      /**
-       * Origin Y Mm
-       * @default 0
-       */
-      origin_y_mm?: number;
-    };
-    /** TemplateDetailResponse */
-    TemplateDetailResponse: {
-      /** Id */
-      id: string;
-      /** Name */
-      name: string;
-      /** Tags */
-      tags: string[];
-      /** Variables */
-      variables: {
-          [key: string]: unknown;
-        }[];
-      /** Preview Target */
-      preview_target: {
-        [key: string]: unknown;
-      };
-      /** Preview Available */
-      preview_available: boolean;
-      /** Template */
-      template: {
-        [key: string]: unknown;
-      };
-      /** Sample Data */
-      sample_data: {
-        [key: string]: unknown;
-      };
-    };
-    /** TemplateListItem */
-    TemplateListItem: {
-      /** Id */
-      id: string;
-      /** Name */
-      name: string;
-      /** Tags */
-      tags: string[];
-      /** Variables */
-      variables: {
-          [key: string]: unknown;
-        }[];
-      /** Preview Target */
-      preview_target: {
-        [key: string]: unknown;
-      };
-      /** Preview Available */
-      preview_available: boolean;
-    };
-    /** TemplateSaveRequest */
-    TemplateSaveRequest: {
-      /** Name */
-      name: string;
-      /** Tags */
-      tags?: string[];
-      /** Variables */
-      variables?: {
-          [key: string]: unknown;
-        }[];
-      /** Template */
-      template: {
-        [key: string]: unknown;
-      };
-      /** Sample Data */
-      sample_data: {
-        [key: string]: unknown;
-      };
-      preview_target: components["schemas"]["RenderTarget"];
-    };
-    /** ValidationError */
-    ValidationError: {
-      /** Location */
-      loc: (string | number)[];
-      /** Message */
-      msg: string;
-      /** Error Type */
-      type: string;
-    };
-  };
-  responses: never;
-  parameters: never;
-  requestBodies: never;
-  headers: never;
-  pathItems: never;
+    responses: never;
+    parameters: never;
+    requestBodies: never;
+    headers: never;
+    pathItems: never;
 }
-
 export type $defs = Record<string, never>;
-
-export type external = Record<string, never>;
-
 export interface operations {
-
-  /** Health */
-  health_health_get: {
-    responses: {
-      /** @description Successful Response */
-      200: {
-        content: {
-          "application/json": {
-            [key: string]: string;
-          };
+    health_health_get: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
         };
-      };
-    };
-  };
-  /** Render Zpl */
-  render_zpl_v1_renders_zpl_post: {
-    requestBody: {
-      content: {
-        "application/json": components["schemas"]["RenderRequest"];
-      };
-    };
-    responses: {
-      /** @description Successful Response */
-      200: {
-        content: {
-          "application/json": components["schemas"]["RenderResponse"];
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        [key: string]: string;
+                    };
+                };
+            };
         };
-      };
-      /** @description Validation Error */
-      422: {
-        content: {
-          "application/json": components["schemas"]["HTTPValidationError"];
+    };
+    render_zpl_v1_renders_zpl_post: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
         };
-      };
-    };
-  };
-  /** Render Png */
-  render_png_v1_renders_png_post: {
-    requestBody: {
-      content: {
-        "application/json": components["schemas"]["RenderRequest"];
-      };
-    };
-    responses: {
-      /** @description Successful Response */
-      200: {
-        content: {
-          "application/json": unknown;
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["RenderRequest"];
+            };
         };
-      };
-      /** @description Validation Error */
-      422: {
-        content: {
-          "application/json": components["schemas"]["HTTPValidationError"];
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["RenderResponse"];
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
         };
-      };
     };
-  };
-  /** Print Zpl */
-  print_zpl_v1_printers__printer_id__prints_zpl_post: {
-    parameters: {
-      path: {
-        printer_id: string;
-      };
-    };
-    requestBody: {
-      content: {
-        "application/json": components["schemas"]["PrintZplRequest"];
-      };
-    };
-    responses: {
-      /** @description Successful Response */
-      200: {
-        content: {
-          "application/json": components["schemas"]["PrintResponse"];
+    render_png_v1_renders_png_post: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
         };
-      };
-      /** @description Validation Error */
-      422: {
-        content: {
-          "application/json": components["schemas"]["HTTPValidationError"];
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["RenderRequest"];
+            };
         };
-      };
-    };
-  };
-  /** Create Print Draft */
-  create_print_draft_v1_drafts_post: {
-    requestBody: {
-      content: {
-        "application/json": components["schemas"]["PrintDraftCreateRequest"];
-      };
-    };
-    responses: {
-      /** @description Successful Response */
-      200: {
-        content: {
-          "application/json": components["schemas"]["PrintDraftResponse"];
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": unknown;
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
         };
-      };
-      /** @description Validation Error */
-      422: {
-        content: {
-          "application/json": components["schemas"]["HTTPValidationError"];
+    };
+    print_zpl_v1_printers__printer_id__prints_zpl_post: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                printer_id: string;
+            };
+            cookie?: never;
         };
-      };
-    };
-  };
-  /** Get Print Draft */
-  get_print_draft_v1_drafts__draft_id__get: {
-    parameters: {
-      path: {
-        draft_id: string;
-      };
-    };
-    responses: {
-      /** @description Successful Response */
-      200: {
-        content: {
-          "application/json": components["schemas"]["PrintDraftDetailResponse"];
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["PrintZplRequest"];
+            };
         };
-      };
-      /** @description Validation Error */
-      422: {
-        content: {
-          "application/json": components["schemas"]["HTTPValidationError"];
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["PrintResponse"];
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
         };
-      };
     };
-  };
-  /** Print Template */
-  print_template_v1_printers__printer_id__prints_template_post: {
-    parameters: {
-      path: {
-        printer_id: string;
-      };
-    };
-    requestBody: {
-      content: {
-        "application/json": components["schemas"]["PrintTemplateRequest"];
-      };
-    };
-    responses: {
-      /** @description Successful Response */
-      200: {
-        content: {
-          "application/json": components["schemas"]["PrintResponse"];
+    create_print_draft_v1_drafts_post: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
         };
-      };
-      /** @description Validation Error */
-      422: {
-        content: {
-          "application/json": components["schemas"]["HTTPValidationError"];
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["PrintDraftCreateRequest"];
+            };
         };
-      };
-    };
-  };
-  /** Get Printer Status */
-  get_printer_status_v1_printers__printer_id__status_get: {
-    parameters: {
-      path: {
-        printer_id: string;
-      };
-    };
-    responses: {
-      /** @description Successful Response */
-      200: {
-        content: {
-          "application/json": components["schemas"]["PrinterStatusResponse"];
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["PrintDraftResponse"];
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
         };
-      };
-      /** @description Validation Error */
-      422: {
-        content: {
-          "application/json": components["schemas"]["HTTPValidationError"];
+    };
+    get_print_draft_v1_drafts__draft_id__get: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                draft_id: string;
+            };
+            cookie?: never;
         };
-      };
-    };
-  };
-  /** List Template Entries */
-  list_template_entries_v1_templates_get: {
-    parameters: {
-      query?: {
-        tags?: string | null;
-      };
-    };
-    responses: {
-      /** @description Successful Response */
-      200: {
-        content: {
-          "application/json": components["schemas"]["TemplateListItem"][];
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["PrintDraftDetailResponse"];
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
         };
-      };
-      /** @description Validation Error */
-      422: {
-        content: {
-          "application/json": components["schemas"]["HTTPValidationError"];
+    };
+    print_template_v1_printers__printer_id__prints_template_post: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                printer_id: string;
+            };
+            cookie?: never;
         };
-      };
-    };
-  };
-  /** Save Template */
-  save_template_v1_templates_post: {
-    requestBody: {
-      content: {
-        "application/json": components["schemas"]["TemplateSaveRequest"];
-      };
-    };
-    responses: {
-      /** @description Successful Response */
-      200: {
-        content: {
-          "application/json": components["schemas"]["TemplateDetailResponse"];
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["PrintTemplateRequest"];
+            };
         };
-      };
-      /** @description Validation Error */
-      422: {
-        content: {
-          "application/json": components["schemas"]["HTTPValidationError"];
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["PrintResponse"];
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
         };
-      };
     };
-  };
-  /** Get Template Entry */
-  get_template_entry_v1_templates__template_id__get: {
-    parameters: {
-      path: {
-        template_id: string;
-      };
-    };
-    responses: {
-      /** @description Successful Response */
-      200: {
-        content: {
-          "application/json": components["schemas"]["TemplateDetailResponse"];
+    get_print_jobs_v1_print_jobs_get: {
+        parameters: {
+            query?: {
+                limit?: number;
+            };
+            header?: never;
+            path?: never;
+            cookie?: never;
         };
-      };
-      /** @description Validation Error */
-      422: {
-        content: {
-          "application/json": components["schemas"]["HTTPValidationError"];
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["PrintJobResponse"][];
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
         };
-      };
     };
-  };
-  /** Update Template */
-  update_template_v1_templates__template_id__put: {
-    parameters: {
-      path: {
-        template_id: string;
-      };
-    };
-    requestBody: {
-      content: {
-        "application/json": components["schemas"]["TemplateSaveRequest"];
-      };
-    };
-    responses: {
-      /** @description Successful Response */
-      200: {
-        content: {
-          "application/json": components["schemas"]["TemplateDetailResponse"];
+    create_print_job_v1_print_jobs_post: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
         };
-      };
-      /** @description Validation Error */
-      422: {
-        content: {
-          "application/json": components["schemas"]["HTTPValidationError"];
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["PrintJobCreateRequest"];
+            };
         };
-      };
-    };
-  };
-  /** Get Template Preview */
-  get_template_preview_v1_templates__template_id__preview_get: {
-    parameters: {
-      path: {
-        template_id: string;
-      };
-    };
-    responses: {
-      /** @description Successful Response */
-      200: {
-        content: {
-          "application/json": unknown;
+        responses: {
+            /** @description Successful Response */
+            202: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["PrintJobResponse"];
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
         };
-      };
-      /** @description Validation Error */
-      422: {
-        content: {
-          "application/json": components["schemas"]["HTTPValidationError"];
-        };
-      };
     };
-  };
-  /** Get Printers */
-  get_printers_v1_printers_get: {
-    responses: {
-      /** @description Successful Response */
-      200: {
-        content: {
-          "application/json": components["schemas"]["PrintersConfigResponse"];
+    get_print_job_v1_print_jobs__job_id__get: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                job_id: string;
+            };
+            cookie?: never;
         };
-      };
-    };
-  };
-  /** Get Printer */
-  get_printer_v1_printers__printer_id__get: {
-    parameters: {
-      path: {
-        printer_id: string;
-      };
-    };
-    responses: {
-      /** @description Successful Response */
-      200: {
-        content: {
-          "application/json": {
-            [key: string]: unknown;
-          };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["PrintJobResponse"];
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
         };
-      };
-      /** @description Validation Error */
-      422: {
-        content: {
-          "application/json": components["schemas"]["HTTPValidationError"];
-        };
-      };
     };
-  };
-  /** Upsert Printer */
-  upsert_printer_v1_printers__printer_id__put: {
-    parameters: {
-      path: {
-        printer_id: string;
-      };
-    };
-    requestBody: {
-      content: {
-        "application/json": {
-          [key: string]: unknown;
+    retry_print_job_v1_print_jobs__job_id__retry_post: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                job_id: string;
+            };
+            cookie?: never;
         };
-      };
-    };
-    responses: {
-      /** @description Successful Response */
-      200: {
-        content: {
-          "application/json": components["schemas"]["PrintersConfigResponse"];
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["PrintJobResponse"];
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
         };
-      };
-      /** @description Validation Error */
-      422: {
-        content: {
-          "application/json": components["schemas"]["HTTPValidationError"];
-        };
-      };
     };
-  };
+    get_printer_status_v1_printers__printer_id__status_get: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                printer_id: string;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["PrinterStatusResponse"];
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    list_template_entries_v1_templates_get: {
+        parameters: {
+            query?: {
+                tags?: string | null;
+            };
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["TemplateListItem"][];
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    save_template_v1_templates_post: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["TemplateSaveRequest"];
+            };
+        };
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["TemplateDetailResponse"];
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    get_template_entry_v1_templates__template_id__get: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                template_id: string;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["TemplateDetailResponse"];
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    update_template_v1_templates__template_id__put: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                template_id: string;
+            };
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["TemplateSaveRequest"];
+            };
+        };
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["TemplateDetailResponse"];
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    get_template_preview_v1_templates__template_id__preview_get: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                template_id: string;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": unknown;
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    get_printers_v1_printers_get: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["PrintersConfigResponse"];
+                };
+            };
+        };
+    };
+    get_zebra_tamer_agents_v1_zebra_tamer_agents_get: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        [key: string]: unknown;
+                    };
+                };
+            };
+        };
+    };
+    get_printer_v1_printers__printer_id__get: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                printer_id: string;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        [key: string]: unknown;
+                    };
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    upsert_printer_v1_printers__printer_id__put: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                printer_id: string;
+            };
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": {
+                    [key: string]: unknown;
+                };
+            };
+        };
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["PrintersConfigResponse"];
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
 }

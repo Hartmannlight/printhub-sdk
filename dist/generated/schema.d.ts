@@ -4,62 +4,297 @@
  */
 export interface paths {
     "/health": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
         /** Health */
         get: operations["health_health_get"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
     };
     "/v1/renders/zpl": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
         /** Render Zpl */
         post: operations["render_zpl_v1_renders_zpl_post"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
     };
     "/v1/renders/png": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
         /** Render Png */
         post: operations["render_png_v1_renders_png_post"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
     };
     "/v1/printers/{printer_id}/prints/zpl": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
         /** Print Zpl */
         post: operations["print_zpl_v1_printers__printer_id__prints_zpl_post"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
     };
     "/v1/drafts": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
         /** Create Print Draft */
         post: operations["create_print_draft_v1_drafts_post"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
     };
     "/v1/drafts/{draft_id}": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
         /** Get Print Draft */
         get: operations["get_print_draft_v1_drafts__draft_id__get"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
     };
     "/v1/printers/{printer_id}/prints/template": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
         /** Print Template */
         post: operations["print_template_v1_printers__printer_id__prints_template_post"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/v1/print-jobs": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /** Get Print Jobs */
+        get: operations["get_print_jobs_v1_print_jobs_get"];
+        put?: never;
+        /** Create Print Job */
+        post: operations["create_print_job_v1_print_jobs_post"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/v1/print-jobs/{job_id}": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /** Get Print Job */
+        get: operations["get_print_job_v1_print_jobs__job_id__get"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/v1/print-jobs/{job_id}/retry": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        /** Retry Print Job */
+        post: operations["retry_print_job_v1_print_jobs__job_id__retry_post"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
     };
     "/v1/printers/{printer_id}/status": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
         /** Get Printer Status */
         get: operations["get_printer_status_v1_printers__printer_id__status_get"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
     };
     "/v1/templates": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
         /** List Template Entries */
         get: operations["list_template_entries_v1_templates_get"];
+        put?: never;
         /** Save Template */
         post: operations["save_template_v1_templates_post"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
     };
     "/v1/templates/{template_id}": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
         /** Get Template Entry */
         get: operations["get_template_entry_v1_templates__template_id__get"];
         /** Update Template */
         put: operations["update_template_v1_templates__template_id__put"];
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
     };
     "/v1/templates/{template_id}/preview": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
         /** Get Template Preview */
         get: operations["get_template_preview_v1_templates__template_id__preview_get"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
     };
     "/v1/printers": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
         /** Get Printers */
         get: operations["get_printers_v1_printers_get"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/v1/zebra-tamer/agents": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /** Get Zebra Tamer Agents */
+        get: operations["get_zebra_tamer_agents_v1_zebra_tamer_agents_get"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
     };
     "/v1/printers/{printer_id}": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
         /** Get Printer */
         get: operations["get_printer_v1_printers__printer_id__get"];
         /** Upsert Printer */
         put: operations["upsert_printer_v1_printers__printer_id__put"];
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
     };
 }
 export type webhooks = Record<string, never>;
@@ -85,7 +320,7 @@ export interface components {
              * Debug
              * @default false
              */
-            debug?: boolean;
+            debug: boolean;
         };
         /** PrintDraftDetailResponse */
         PrintDraftDetailResponse: {
@@ -114,6 +349,47 @@ export interface components {
             /** Expires At */
             expires_at: string;
         };
+        /** PrintJobCreateRequest */
+        PrintJobCreateRequest: {
+            /** Printer Id */
+            printer_id: string;
+            /** Template Id */
+            template_id: string;
+            /** Variables */
+            variables?: {
+                [key: string]: unknown;
+            };
+            target?: components["schemas"]["RenderTarget"] | null;
+            /** Idempotency Key */
+            idempotency_key?: string | null;
+            /** Origin */
+            origin?: string | null;
+        };
+        /** PrintJobResponse */
+        PrintJobResponse: {
+            /** Id */
+            id: string;
+            /** Status */
+            status: string;
+            /** Printer Id */
+            printer_id: string;
+            /** Template Id */
+            template_id: string;
+            /** Attempts */
+            attempts: number;
+            /** Bytes Sent */
+            bytes_sent?: number | null;
+            /** Downstream Job Id */
+            downstream_job_id?: string | null;
+            /** Downstream Job State */
+            downstream_job_state?: string | null;
+            /** Error */
+            error?: string | null;
+            /** Created At */
+            created_at: string;
+            /** Updated At */
+            updated_at: string;
+        };
         /** PrintResponse */
         PrintResponse: {
             /** Printer Id */
@@ -122,6 +398,10 @@ export interface components {
             bytes_sent: number;
             /** Preview Png Base64 */
             preview_png_base64?: string | null;
+            /** Job Id */
+            job_id?: string | null;
+            /** Job State */
+            job_state?: string | null;
         };
         /** PrintTemplateRequest */
         PrintTemplateRequest: {
@@ -137,13 +417,13 @@ export interface components {
              * Debug
              * @default false
              */
-            debug?: boolean;
+            debug: boolean;
             target?: components["schemas"]["RenderTarget"] | null;
             /**
              * Return Preview
              * @default false
              */
-            return_preview?: boolean;
+            return_preview: boolean;
         };
         /** PrintZplRequest */
         PrintZplRequest: {
@@ -153,7 +433,7 @@ export interface components {
              * Return Preview
              * @default false
              */
-            return_preview?: boolean;
+            return_preview: boolean;
         };
         /** PrinterStatusResponse */
         PrinterStatusResponse: {
@@ -196,7 +476,7 @@ export interface components {
              * Debug
              * @default false
              */
-            debug?: boolean;
+            debug: boolean;
         };
         /** RenderResponse */
         RenderResponse: {
@@ -213,17 +493,17 @@ export interface components {
              * Dpi
              * @default 203
              */
-            dpi?: number;
+            dpi: number;
             /**
              * Origin X Mm
              * @default 0
              */
-            origin_x_mm?: number;
+            origin_x_mm: number;
             /**
              * Origin Y Mm
              * @default 0
              */
-            origin_y_mm?: number;
+            origin_y_mm: number;
         };
         /** TemplateDetailResponse */
         TemplateDetailResponse: {
@@ -308,13 +588,21 @@ export interface components {
     pathItems: never;
 }
 export type $defs = Record<string, never>;
-export type external = Record<string, never>;
 export interface operations {
-    /** Health */
     health_health_get: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
         responses: {
             /** @description Successful Response */
             200: {
+                headers: {
+                    [name: string]: unknown;
+                };
                 content: {
                     "application/json": {
                         [key: string]: string;
@@ -323,8 +611,13 @@ export interface operations {
             };
         };
     };
-    /** Render Zpl */
     render_zpl_v1_renders_zpl_post: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
         requestBody: {
             content: {
                 "application/json": components["schemas"]["RenderRequest"];
@@ -333,20 +626,31 @@ export interface operations {
         responses: {
             /** @description Successful Response */
             200: {
+                headers: {
+                    [name: string]: unknown;
+                };
                 content: {
                     "application/json": components["schemas"]["RenderResponse"];
                 };
             };
             /** @description Validation Error */
             422: {
+                headers: {
+                    [name: string]: unknown;
+                };
                 content: {
                     "application/json": components["schemas"]["HTTPValidationError"];
                 };
             };
         };
     };
-    /** Render Png */
     render_png_v1_renders_png_post: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
         requestBody: {
             content: {
                 "application/json": components["schemas"]["RenderRequest"];
@@ -355,24 +659,32 @@ export interface operations {
         responses: {
             /** @description Successful Response */
             200: {
+                headers: {
+                    [name: string]: unknown;
+                };
                 content: {
                     "application/json": unknown;
                 };
             };
             /** @description Validation Error */
             422: {
+                headers: {
+                    [name: string]: unknown;
+                };
                 content: {
                     "application/json": components["schemas"]["HTTPValidationError"];
                 };
             };
         };
     };
-    /** Print Zpl */
     print_zpl_v1_printers__printer_id__prints_zpl_post: {
         parameters: {
+            query?: never;
+            header?: never;
             path: {
                 printer_id: string;
             };
+            cookie?: never;
         };
         requestBody: {
             content: {
@@ -382,20 +694,31 @@ export interface operations {
         responses: {
             /** @description Successful Response */
             200: {
+                headers: {
+                    [name: string]: unknown;
+                };
                 content: {
                     "application/json": components["schemas"]["PrintResponse"];
                 };
             };
             /** @description Validation Error */
             422: {
+                headers: {
+                    [name: string]: unknown;
+                };
                 content: {
                     "application/json": components["schemas"]["HTTPValidationError"];
                 };
             };
         };
     };
-    /** Create Print Draft */
     create_print_draft_v1_drafts_post: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
         requestBody: {
             content: {
                 "application/json": components["schemas"]["PrintDraftCreateRequest"];
@@ -404,46 +727,63 @@ export interface operations {
         responses: {
             /** @description Successful Response */
             200: {
+                headers: {
+                    [name: string]: unknown;
+                };
                 content: {
                     "application/json": components["schemas"]["PrintDraftResponse"];
                 };
             };
             /** @description Validation Error */
             422: {
+                headers: {
+                    [name: string]: unknown;
+                };
                 content: {
                     "application/json": components["schemas"]["HTTPValidationError"];
                 };
             };
         };
     };
-    /** Get Print Draft */
     get_print_draft_v1_drafts__draft_id__get: {
         parameters: {
+            query?: never;
+            header?: never;
             path: {
                 draft_id: string;
             };
+            cookie?: never;
         };
+        requestBody?: never;
         responses: {
             /** @description Successful Response */
             200: {
+                headers: {
+                    [name: string]: unknown;
+                };
                 content: {
                     "application/json": components["schemas"]["PrintDraftDetailResponse"];
                 };
             };
             /** @description Validation Error */
             422: {
+                headers: {
+                    [name: string]: unknown;
+                };
                 content: {
                     "application/json": components["schemas"]["HTTPValidationError"];
                 };
             };
         };
     };
-    /** Print Template */
     print_template_v1_printers__printer_id__prints_template_post: {
         parameters: {
+            query?: never;
+            header?: never;
             path: {
                 printer_id: string;
             };
+            cookie?: never;
         };
         requestBody: {
             content: {
@@ -453,64 +793,219 @@ export interface operations {
         responses: {
             /** @description Successful Response */
             200: {
+                headers: {
+                    [name: string]: unknown;
+                };
                 content: {
                     "application/json": components["schemas"]["PrintResponse"];
                 };
             };
             /** @description Validation Error */
             422: {
+                headers: {
+                    [name: string]: unknown;
+                };
                 content: {
                     "application/json": components["schemas"]["HTTPValidationError"];
                 };
             };
         };
     };
-    /** Get Printer Status */
-    get_printer_status_v1_printers__printer_id__status_get: {
+    get_print_jobs_v1_print_jobs_get: {
         parameters: {
-            path: {
-                printer_id: string;
+            query?: {
+                limit?: number;
+            };
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["PrintJobResponse"][];
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    create_print_job_v1_print_jobs_post: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["PrintJobCreateRequest"];
             };
         };
         responses: {
             /** @description Successful Response */
+            202: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["PrintJobResponse"];
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    get_print_job_v1_print_jobs__job_id__get: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                job_id: string;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
             200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["PrintJobResponse"];
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    retry_print_job_v1_print_jobs__job_id__retry_post: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                job_id: string;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["PrintJobResponse"];
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    get_printer_status_v1_printers__printer_id__status_get: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                printer_id: string;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
                 content: {
                     "application/json": components["schemas"]["PrinterStatusResponse"];
                 };
             };
             /** @description Validation Error */
             422: {
+                headers: {
+                    [name: string]: unknown;
+                };
                 content: {
                     "application/json": components["schemas"]["HTTPValidationError"];
                 };
             };
         };
     };
-    /** List Template Entries */
     list_template_entries_v1_templates_get: {
         parameters: {
             query?: {
                 tags?: string | null;
             };
+            header?: never;
+            path?: never;
+            cookie?: never;
         };
+        requestBody?: never;
         responses: {
             /** @description Successful Response */
             200: {
+                headers: {
+                    [name: string]: unknown;
+                };
                 content: {
                     "application/json": components["schemas"]["TemplateListItem"][];
                 };
             };
             /** @description Validation Error */
             422: {
+                headers: {
+                    [name: string]: unknown;
+                };
                 content: {
                     "application/json": components["schemas"]["HTTPValidationError"];
                 };
             };
         };
     };
-    /** Save Template */
     save_template_v1_templates_post: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
         requestBody: {
             content: {
                 "application/json": components["schemas"]["TemplateSaveRequest"];
@@ -519,46 +1014,63 @@ export interface operations {
         responses: {
             /** @description Successful Response */
             200: {
+                headers: {
+                    [name: string]: unknown;
+                };
                 content: {
                     "application/json": components["schemas"]["TemplateDetailResponse"];
                 };
             };
             /** @description Validation Error */
             422: {
+                headers: {
+                    [name: string]: unknown;
+                };
                 content: {
                     "application/json": components["schemas"]["HTTPValidationError"];
                 };
             };
         };
     };
-    /** Get Template Entry */
     get_template_entry_v1_templates__template_id__get: {
         parameters: {
+            query?: never;
+            header?: never;
             path: {
                 template_id: string;
             };
+            cookie?: never;
         };
+        requestBody?: never;
         responses: {
             /** @description Successful Response */
             200: {
+                headers: {
+                    [name: string]: unknown;
+                };
                 content: {
                     "application/json": components["schemas"]["TemplateDetailResponse"];
                 };
             };
             /** @description Validation Error */
             422: {
+                headers: {
+                    [name: string]: unknown;
+                };
                 content: {
                     "application/json": components["schemas"]["HTTPValidationError"];
                 };
             };
         };
     };
-    /** Update Template */
     update_template_v1_templates__template_id__put: {
         parameters: {
+            query?: never;
+            header?: never;
             path: {
                 template_id: string;
             };
+            cookie?: never;
         };
         requestBody: {
             content: {
@@ -568,61 +1080,113 @@ export interface operations {
         responses: {
             /** @description Successful Response */
             200: {
+                headers: {
+                    [name: string]: unknown;
+                };
                 content: {
                     "application/json": components["schemas"]["TemplateDetailResponse"];
                 };
             };
             /** @description Validation Error */
             422: {
+                headers: {
+                    [name: string]: unknown;
+                };
                 content: {
                     "application/json": components["schemas"]["HTTPValidationError"];
                 };
             };
         };
     };
-    /** Get Template Preview */
     get_template_preview_v1_templates__template_id__preview_get: {
         parameters: {
+            query?: never;
+            header?: never;
             path: {
                 template_id: string;
             };
+            cookie?: never;
         };
+        requestBody?: never;
         responses: {
             /** @description Successful Response */
             200: {
+                headers: {
+                    [name: string]: unknown;
+                };
                 content: {
                     "application/json": unknown;
                 };
             };
             /** @description Validation Error */
             422: {
+                headers: {
+                    [name: string]: unknown;
+                };
                 content: {
                     "application/json": components["schemas"]["HTTPValidationError"];
                 };
             };
         };
     };
-    /** Get Printers */
     get_printers_v1_printers_get: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
         responses: {
             /** @description Successful Response */
             200: {
+                headers: {
+                    [name: string]: unknown;
+                };
                 content: {
                     "application/json": components["schemas"]["PrintersConfigResponse"];
                 };
             };
         };
     };
-    /** Get Printer */
-    get_printer_v1_printers__printer_id__get: {
+    get_zebra_tamer_agents_v1_zebra_tamer_agents_get: {
         parameters: {
-            path: {
-                printer_id: string;
-            };
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
         };
+        requestBody?: never;
         responses: {
             /** @description Successful Response */
             200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        [key: string]: unknown;
+                    };
+                };
+            };
+        };
+    };
+    get_printer_v1_printers__printer_id__get: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                printer_id: string;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
                 content: {
                     "application/json": {
                         [key: string]: unknown;
@@ -631,18 +1195,23 @@ export interface operations {
             };
             /** @description Validation Error */
             422: {
+                headers: {
+                    [name: string]: unknown;
+                };
                 content: {
                     "application/json": components["schemas"]["HTTPValidationError"];
                 };
             };
         };
     };
-    /** Upsert Printer */
     upsert_printer_v1_printers__printer_id__put: {
         parameters: {
+            query?: never;
+            header?: never;
             path: {
                 printer_id: string;
             };
+            cookie?: never;
         };
         requestBody: {
             content: {
@@ -654,12 +1223,18 @@ export interface operations {
         responses: {
             /** @description Successful Response */
             200: {
+                headers: {
+                    [name: string]: unknown;
+                };
                 content: {
                     "application/json": components["schemas"]["PrintersConfigResponse"];
                 };
             };
             /** @description Validation Error */
             422: {
+                headers: {
+                    [name: string]: unknown;
+                };
                 content: {
                     "application/json": components["schemas"]["HTTPValidationError"];
                 };

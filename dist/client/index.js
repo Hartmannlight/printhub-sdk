@@ -1,6 +1,7 @@
 import { createPrinthubDependencies, PrinthubApiError } from "./core";
 import { createDraftsClient } from "./drafts";
 import { createPrintersClient } from "./printers";
+import { createPrintJobsClient } from "./printJobs";
 import { createRendersClient } from "./renders";
 import { createTemplatesClient } from "./templates";
 export * from "./core";
@@ -10,6 +11,7 @@ export const createPrinthubSdk = (config) => {
     return {
         drafts: createDraftsClient(dependencies),
         printers: createPrintersClient(dependencies),
+        printJobs: createPrintJobsClient(dependencies),
         renders: createRendersClient(dependencies),
         templates: createTemplatesClient(dependencies),
     };
