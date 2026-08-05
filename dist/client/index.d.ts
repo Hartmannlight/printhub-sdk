@@ -122,6 +122,10 @@ export declare const createPrinthubSdk: (config: PrinthubSdkConfig) => {
             zpl: string;
         }>;
         renderPng: (body: import("./types").RenderRequest) => Promise<Blob>;
+        renderPngDetailed: (body: import("./types").RenderRequest) => Promise<{
+            blob: Blob;
+            diagnostics: import("./renders").RenderDiagnostic[];
+        }>;
     };
     templates: {
         list: (query?: {
