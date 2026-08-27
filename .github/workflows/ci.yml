@@ -3,7 +3,7 @@ name: SDK CI
 on:
   pull_request:
   push:
-    branches: [feat/sdk-api-adoption]
+    branches: [main, feat/sdk-api-adoption]
 
 permissions:
   contents: read

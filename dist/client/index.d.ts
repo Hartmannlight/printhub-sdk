@@ -28,13 +28,26 @@ export declare const createPrinthubSdk: (config: PrinthubSdkConfig) => {
             printers: {
                 [key: string]: unknown;
             }[];
+            default_printer_id?: string | null;
         }>;
+        register: (body: import("./types").PrinterRegistrationRequest) => Promise<Record<string, unknown>>;
+        getConfiguration: (printerId: string) => Promise<Record<string, unknown>>;
+        updateSettings: (printerId: string, body: import("./types").PrinterSettingsRequest) => Promise<Record<string, unknown>>;
+        importConfiguration: (body: Record<string, unknown>) => Promise<{
+            config_version: number;
+            printers: {
+                [key: string]: unknown;
+            }[];
+            default_printer_id?: string | null;
+        }>;
+        discover: (baseUrl?: string) => Promise<Record<string, unknown>>;
         get: (printerId: string) => Promise<Record<string, unknown>>;
         upsert: (printerId: string, body: Record<string, unknown>) => Promise<{
             config_version: number;
             printers: {
                 [key: string]: unknown;
             }[];
+            default_printer_id?: string | null;
         }>;
         getStatus: (printerId: string) => Promise<{
             printer_id: string;
@@ -120,6 +133,7 @@ export declare const createPrinthubSdk: (config: PrinthubSdkConfig) => {
     renders: {
         renderZpl: (body: import("./types").RenderRequest) => Promise<{
             zpl: string;
+            diagnostics?: import("../generated/schema").components["schemas"]["RenderDiagnostic"][];
         }>;
         renderPng: (body: import("./types").RenderRequest) => Promise<Blob>;
         renderPngDetailed: (body: import("./types").RenderRequest) => Promise<{

@@ -16,5 +16,7 @@ export type TemplateSaveRequest = components["schemas"]["TemplateSaveRequest"];
 export type TemplateListItem = components["schemas"]["TemplateListItem"];
 export type TemplateDetailResponse = components["schemas"]["TemplateDetailResponse"];
 export type PrintersConfigResponse = components["schemas"]["PrintersConfigResponse"];
+export type PrinterRegistrationRequest = components["schemas"]["PrinterRegistrationRequest"];
+export type PrinterSettingsRequest = components["schemas"]["PrinterSettingsRequest"];
 export type HTTPValidationError = components["schemas"]["HTTPValidationError"];
 export type ValidationError = components["schemas"]["ValidationError"];

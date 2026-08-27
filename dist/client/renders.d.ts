@@ -12,6 +12,7 @@ export type RenderDiagnostic = {
 export declare const createRendersClient: ({ generated, config }: PrinthubSdkDependencies) => {
     renderZpl: (body: RenderRequest) => Promise<{
         zpl: string;
+        diagnostics?: import("../generated/schema").components["schemas"]["RenderDiagnostic"][];
     }>;
     renderPng: (body: RenderRequest) => Promise<Blob>;
     renderPngDetailed: (body: RenderRequest) => Promise<{

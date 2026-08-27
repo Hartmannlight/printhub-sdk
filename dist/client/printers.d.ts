@@ -1,4 +1,4 @@
-import type { PrintTemplateRequest, PrintZplRequest } from "./types";
+import type { PrintTemplateRequest, PrintZplRequest, PrinterRegistrationRequest, PrinterSettingsRequest } from "./types";
 import type { PrinthubSdkDependencies } from "./core";
 export declare const createPrintersClient: ({ generated }: PrinthubSdkDependencies) => {
     list: () => Promise<{
@@ -6,13 +6,26 @@ export declare const createPrintersClient: ({ generated }: PrinthubSdkDependenci
         printers: {
             [key: string]: unknown;
         }[];
+        default_printer_id?: string | null;
     }>;
+    register: (body: PrinterRegistrationRequest) => Promise<Record<string, unknown>>;
+    getConfiguration: (printerId: string) => Promise<Record<string, unknown>>;
+    updateSettings: (printerId: string, body: PrinterSettingsRequest) => Promise<Record<string, unknown>>;
+    importConfiguration: (body: Record<string, unknown>) => Promise<{
+        config_version: number;
+        printers: {
+            [key: string]: unknown;
+        }[];
+        default_printer_id?: string | null;
+    }>;
+    discover: (baseUrl?: string) => Promise<Record<string, unknown>>;
     get: (printerId: string) => Promise<Record<string, unknown>>;
     upsert: (printerId: string, body: Record<string, unknown>) => Promise<{
         config_version: number;
         printers: {
             [key: string]: unknown;
         }[];
+        default_printer_id?: string | null;
     }>;
     getStatus: (printerId: string) => Promise<{
         printer_id: string;
