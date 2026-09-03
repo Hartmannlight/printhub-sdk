@@ -9,7 +9,7 @@ export type RenderDiagnostic = {
     actual_lines?: number | null;
     max_lines?: number | null;
 };
-export declare const createRendersClient: ({ generated, config }: PrinthubSdkDependencies) => {
+export declare const createRendersClient: ({ config }: PrinthubSdkDependencies) => {
     renderZpl: (body: RenderRequest) => Promise<{
         zpl: string;
         diagnostics?: import("../generated/schema").components["schemas"]["RenderDiagnostic"][];

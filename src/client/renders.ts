@@ -1,6 +1,6 @@
 import type { RenderRequest, RenderResponse } from "./types";
 import type { PrinthubSdkDependencies } from "./core";
-import { unwrap } from "./core";
+import { PrinthubApiError } from "./core";
 
 const normalizeBaseUrl = (baseUrl: string) => baseUrl.replace(/\/+$/, "");
 
@@ -24,7 +24,26 @@ const parseDiagnostics = (value: string | null): RenderDiagnostic[] => {
   }
 };
 
-export const createRendersClient = ({ generated, config }: PrinthubSdkDependencies) => {
+export const createRendersClient = ({ config }: PrinthubSdkDependencies) => {
+  const renderZpl = async (body: RenderRequest) => {
+    const response = await (config.fetch ?? fetch)(`${normalizeBaseUrl(config.baseUrl)}/v1/renders/zpl`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "application/json",
+        ...(config.headers ?? {}),
+      },
+      body: JSON.stringify(body),
+    });
+    const payload = await response.json().catch(() => undefined) as RenderResponse | { detail?: unknown } | undefined;
+    if (!response.ok) {
+      const detail = payload && "detail" in payload ? payload.detail : undefined;
+      const message = typeof detail === "string" ? detail : response.statusText || "Request failed";
+      throw new PrinthubApiError(response.status, message, detail);
+    }
+    return payload as RenderResponse;
+  };
+
   const renderPngDetailed = async (body: RenderRequest) => {
     const response = await (config.fetch ?? fetch)(`${normalizeBaseUrl(config.baseUrl)}/v1/renders/png`, {
       method: "POST",
@@ -45,7 +64,7 @@ export const createRendersClient = ({ generated, config }: PrinthubSdkDependenci
   };
 
   return {
-    renderZpl: (body: RenderRequest) => unwrap<RenderResponse>(generated.POST("/v1/renders/zpl", { body })),
+    renderZpl,
     renderPng: async (body: RenderRequest) => (await renderPngDetailed(body)).blob,
     renderPngDetailed,
   };

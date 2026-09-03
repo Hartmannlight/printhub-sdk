@@ -26,6 +26,7 @@
     "generate": "openapi-typescript openapi/printhub-openapi.json -o src/generated/schema.ts",
     "build": "npm run generate && tsc -p tsconfig.json",
     "check:generated": "node scripts/check-generated.mjs",
+    "test": "node --experimental-strip-types --test tests/*.test.mjs",
     "typecheck": "tsc --noEmit",
     "audit": "npm audit --audit-level=high",
     "ci": "npm run check:generated && npm run typecheck && npm run build && npm run audit",
