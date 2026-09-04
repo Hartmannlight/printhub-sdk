@@ -140,6 +140,23 @@ export interface paths {
         patch?: never;
         trace?: never;
     };
+    "/v1/print-jobs/raster": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        /** Create Raster Print Job */
+        post: operations["create_raster_print_job_v1_print_jobs_raster_post"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
     "/v1/print-jobs/{job_id}": {
         parameters: {
             query?: never;
@@ -151,6 +168,23 @@ export interface paths {
         get: operations["get_print_job_v1_print_jobs__job_id__get"];
         put?: never;
         post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/v1/print-jobs/{job_id}/release": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        /** Release Print Job */
+        post: operations["release_print_job_v1_print_jobs__job_id__release_post"];
         delete?: never;
         options?: never;
         head?: never;
@@ -394,6 +428,16 @@ export interface components {
             /** Base Url */
             base_url: string;
         };
+        /**
+         * ContentOptimize
+         * @enum {string}
+         */
+        ContentOptimize: "auto" | "text" | "graphics" | "photo";
+        /**
+         * DitherMode
+         * @enum {string}
+         */
+        DitherMode: "auto" | "none" | "floyd_steinberg";
         /** HTTPValidationError */
         HTTPValidationError: {
             /** Detail */
@@ -468,7 +512,14 @@ export interface components {
             /** Printer Id */
             printer_id: string;
             /** Template Id */
-            template_id: string;
+            template_id?: string | null;
+            /**
+             * Source Kind
+             * @default template
+             */
+            source_kind: string;
+            /** Page Count */
+            page_count?: number | null;
             /** Attempts */
             attempts: number;
             /** Bytes Sent */
@@ -477,6 +528,10 @@ export interface components {
             downstream_job_id?: string | null;
             /** Downstream Job State */
             downstream_job_state?: string | null;
+            /** Preview Png Base64 */
+            preview_png_base64?: string | null;
+            /** Warning */
+            warning?: string | null;
             /** Error */
             error?: string | null;
             /** Created At */
@@ -583,6 +638,48 @@ export interface components {
             /** Default Printer Id */
             default_printer_id?: string | null;
         };
+        /** RasterPageRequest */
+        RasterPageRequest: {
+            /** Mime Type */
+            mime_type: string;
+            /** Data Base64 */
+            data_base64: string;
+            /** Width Mm */
+            width_mm: number;
+            /** Height Mm */
+            height_mm: number;
+        };
+        /** RasterPrintJobCreateRequest */
+        RasterPrintJobCreateRequest: {
+            /** Printer Id */
+            printer_id: string;
+            /** Pages */
+            pages: components["schemas"]["RasterPageRequest"][];
+            /**
+             * Copies
+             * @default 1
+             */
+            copies: number;
+            /** @default hold */
+            scaling: components["schemas"]["ScalingPolicy"];
+            /** @default auto */
+            content_optimize: components["schemas"]["ContentOptimize"];
+            /** @default auto */
+            dither: components["schemas"]["DitherMode"];
+            /**
+             * Mismatch Tolerance Mm
+             * @default 0.5
+             */
+            mismatch_tolerance_mm: number;
+            /** Idempotency Key */
+            idempotency_key?: string | null;
+            /** Origin */
+            origin?: string | null;
+        };
+        /** RasterPrintJobReleaseRequest */
+        RasterPrintJobReleaseRequest: {
+            scaling: components["schemas"]["ScalingPolicy"];
+        };
         /** RenderDiagnostic */
         RenderDiagnostic: {
             /** Code */
@@ -649,6 +746,12 @@ export interface components {
              */
             origin_y_mm: number;
         };
+        /**
+         * ScalingPolicy
+         * @description How a document page is mapped to the loaded label.
+         * @enum {string}
+         */
+        ScalingPolicy: "hold" | "fit" | "fill";
         /** TemplateDetailResponse */
         TemplateDetailResponse: {
             /** Id */
@@ -723,6 +826,10 @@ export interface components {
             msg: string;
             /** Error Type */
             type: string;
+            /** Input */
+            input?: unknown;
+            /** Context */
+            ctx?: Record<string, never>;
         };
     };
     responses: never;
@@ -1019,6 +1126,39 @@ export interface operations {
             };
         };
     };
+    create_raster_print_job_v1_print_jobs_raster_post: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["RasterPrintJobCreateRequest"];
+            };
+        };
+        responses: {
+            /** @description Successful Response */
+            202: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["PrintJobResponse"];
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
     get_print_job_v1_print_jobs__job_id__get: {
         parameters: {
             query?: never;
@@ -1029,6 +1169,41 @@ export interface operations {
             cookie?: never;
         };
         requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["PrintJobResponse"];
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    release_print_job_v1_print_jobs__job_id__release_post: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                job_id: string;
+            };
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["RasterPrintJobReleaseRequest"];
+            };
+        };
         responses: {
             /** @description Successful Response */
             200: {
