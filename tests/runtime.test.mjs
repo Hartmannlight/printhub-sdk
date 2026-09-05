@@ -1,4 +1,5 @@
 import assert from "node:assert/strict";
+import { readFile } from "node:fs/promises";
 import test from "node:test";
 
 import { createPrinthubGeneratedClient } from "../src/generated/runtime.ts";
@@ -25,4 +26,12 @@ test("generated POST requests preserve their JSON content type", async () => {
 
   assert.equal(request.headers.get("Content-Type"), "application/json");
   assert.deepEqual(JSON.parse(await request.text()), body);
+});
+
+test("printer client exposes only PrintHub read models", () => {
+  return readFile(new URL("../src/client/printers.ts", import.meta.url), "utf8").then((source) => {
+    assert.match(source, /list:/);
+    assert.match(source, /get:/);
+    assert.doesNotMatch(source, /register:|updateSettings:|discover:|getStatus:|printZpl:/);
+  });
 });
