@@ -483,6 +483,8 @@ export interface components {
             idempotency_key?: string | null;
             /** Origin */
             origin?: string | null;
+            /** Origin Reference */
+            origin_reference?: string | null;
         };
         /** HTTPValidationError */
         HTTPValidationError: {
@@ -548,6 +550,8 @@ export interface components {
             idempotency_key?: string | null;
             /** Origin */
             origin?: string | null;
+            /** Origin Reference */
+            origin_reference?: string | null;
         };
         /** PrintJobResponse */
         PrintJobResponse: {
@@ -725,6 +729,8 @@ export interface components {
             idempotency_key?: string | null;
             /** Origin */
             origin?: string | null;
+            /** Origin Reference */
+            origin_reference?: string | null;
         };
         /** RasterPrintJobReleaseRequest */
         RasterPrintJobReleaseRequest: {
