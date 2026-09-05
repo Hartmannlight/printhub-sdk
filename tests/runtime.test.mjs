@@ -35,3 +35,24 @@ test("printer client exposes only PrintHub read models", () => {
     assert.doesNotMatch(source, /register:|updateSettings:|discover:|getStatus:|printZpl:/);
   });
 });
+
+test("published contract excludes physical printer administration", async () => {
+  const contract = JSON.parse(
+    await readFile(new URL("../openapi/printhub-openapi.json", import.meta.url), "utf8"),
+  );
+  const paths = contract.paths;
+  const retired = [
+    "/v1/printers/{printer_id}/prints/zpl",
+    "/v1/printers/{printer_id}/status",
+    "/v1/printers/{printer_id}/configuration",
+    "/v1/printers/register",
+    "/v1/printer-registry/export",
+    "/v1/printer-registry/import",
+    "/v1/zebra-tamer/agents",
+    "/v1/zebra-tamer/discover",
+  ];
+
+  assert.deepEqual(Object.keys(paths["/v1/printers"]), ["get"]);
+  assert.deepEqual(Object.keys(paths["/v1/printers/{printer_id}"]), ["get"]);
+  retired.forEach((path) => assert.equal(paths[path], undefined));
+});
