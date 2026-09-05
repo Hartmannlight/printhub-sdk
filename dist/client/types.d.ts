@@ -3,7 +3,6 @@ export type RenderTarget = components["schemas"]["RenderTarget"];
 export type RenderRequest = components["schemas"]["RenderRequest"];
 export type RenderResponse = components["schemas"]["RenderResponse"];
 export type PrintZplRequest = components["schemas"]["PrintZplRequest"];
-export type PrintTemplateRequest = components["schemas"]["PrintTemplateRequest"];
 export type PrintResponse = components["schemas"]["PrintResponse"];
 export type PrintJobCreateRequest = components["schemas"]["PrintJobCreateRequest"];
 export type RasterPageRequest = components["schemas"]["RasterPageRequest"];

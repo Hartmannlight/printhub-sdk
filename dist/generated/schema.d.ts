@@ -105,23 +105,6 @@ export interface paths {
         patch?: never;
         trace?: never;
     };
-    "/v1/printers/{printer_id}/prints/template": {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        get?: never;
-        put?: never;
-        /** Print Template */
-        post: operations["print_template_v1_printers__printer_id__prints_template_post"];
-        delete?: never;
-        options?: never;
-        head?: never;
-        patch?: never;
-        trace?: never;
-    };
     "/v1/print-jobs": {
         parameters: {
             query?: never;
@@ -606,30 +589,6 @@ export interface components {
             /** Job State */
             job_state?: string | null;
         };
-        /** PrintTemplateRequest */
-        PrintTemplateRequest: {
-            /** Template */
-            template: {
-                [key: string]: unknown;
-            };
-            /** Variables */
-            variables?: {
-                [key: string]: unknown;
-            };
-            /**
-             * Debug
-             * @default false
-             */
-            debug: boolean;
-            target?: components["schemas"]["RenderTarget"] | null;
-            /**
-             * Return Preview
-             * @default false
-             */
-            return_preview: boolean;
-            /** Idempotency Key */
-            idempotency_key?: string | null;
-        };
         /** PrintZplRequest */
         PrintZplRequest: {
             /** Zpl */
@@ -1074,41 +1033,6 @@ export interface operations {
                 };
                 content: {
                     "application/json": components["schemas"]["PrintDraftDetailResponse"];
-                };
-            };
-            /** @description Validation Error */
-            422: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": components["schemas"]["HTTPValidationError"];
-                };
-            };
-        };
-    };
-    print_template_v1_printers__printer_id__prints_template_post: {
-        parameters: {
-            query?: never;
-            header?: never;
-            path: {
-                printer_id: string;
-            };
-            cookie?: never;
-        };
-        requestBody: {
-            content: {
-                "application/json": components["schemas"]["PrintTemplateRequest"];
-            };
-        };
-        responses: {
-            /** @description Successful Response */
-            200: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": components["schemas"]["PrintResponse"];
                 };
             };
             /** @description Validation Error */
