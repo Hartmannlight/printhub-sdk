@@ -9,6 +9,7 @@ export type PrintResponse = components["schemas"]["PrintResponse"];
 export type PrintJobCreateRequest = components["schemas"]["PrintJobCreateRequest"];
 export type RasterPageRequest = components["schemas"]["RasterPageRequest"];
 export type RasterPrintJobCreateRequest = components["schemas"]["RasterPrintJobCreateRequest"];
+export type DocumentPrintJobCreateRequest = components["schemas"]["DocumentPrintJobCreateRequest"];
 export type RasterPrintJobReleaseRequest = components["schemas"]["RasterPrintJobReleaseRequest"];
 export type PrintJobResponse = components["schemas"]["PrintJobResponse"];
 export type PrinterStatusResponse = components["schemas"]["PrinterStatusResponse"];

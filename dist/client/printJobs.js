@@ -4,6 +4,7 @@ export const createPrintJobsClient = ({ generated }) => ({
     get: (jobId) => unwrap(generated.GET("/v1/print-jobs/{job_id}", { params: { path: { job_id: jobId } } })),
     create: (body) => unwrap(generated.POST("/v1/print-jobs", { body })),
     createRaster: (body) => unwrap(generated.POST("/v1/print-jobs/raster", { body })),
+    createDocument: (body) => unwrap(generated.POST("/v1/print-jobs/documents", { body })),
     release: (jobId, body) => unwrap(generated.POST("/v1/print-jobs/{job_id}/release", {
         params: { path: { job_id: jobId } },
         body,

@@ -157,6 +157,23 @@ export interface paths {
         patch?: never;
         trace?: never;
     };
+    "/v1/print-jobs/documents": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        /** Create Document Print Job */
+        post: operations["create_document_print_job_v1_print_jobs_documents_post"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
     "/v1/print-jobs/{job_id}": {
         parameters: {
             query?: never;
@@ -438,6 +455,35 @@ export interface components {
          * @enum {string}
          */
         DitherMode: "auto" | "none" | "floyd_steinberg";
+        /** DocumentPrintJobCreateRequest */
+        DocumentPrintJobCreateRequest: {
+            /** Printer Id */
+            printer_id: string;
+            /** Mime Type */
+            mime_type: string;
+            /** Data Base64 */
+            data_base64: string;
+            /**
+             * Copies
+             * @default 1
+             */
+            copies: number;
+            /** @default hold */
+            scaling: components["schemas"]["ScalingPolicy"];
+            /** @default auto */
+            content_optimize: components["schemas"]["ContentOptimize"];
+            /** @default auto */
+            dither: components["schemas"]["DitherMode"];
+            /**
+             * Mismatch Tolerance Mm
+             * @default 0.5
+             */
+            mismatch_tolerance_mm: number;
+            /** Idempotency Key */
+            idempotency_key?: string | null;
+            /** Origin */
+            origin?: string | null;
+        };
         /** HTTPValidationError */
         HTTPValidationError: {
             /** Detail */
@@ -573,6 +619,8 @@ export interface components {
              * @default false
              */
             return_preview: boolean;
+            /** Idempotency Key */
+            idempotency_key?: string | null;
         };
         /** PrintZplRequest */
         PrintZplRequest: {
@@ -583,6 +631,8 @@ export interface components {
              * @default false
              */
             return_preview: boolean;
+            /** Idempotency Key */
+            idempotency_key?: string | null;
         };
         /** PrinterRegistrationRequest */
         PrinterRegistrationRequest: {
@@ -1136,6 +1186,39 @@ export interface operations {
         requestBody: {
             content: {
                 "application/json": components["schemas"]["RasterPrintJobCreateRequest"];
+            };
+        };
+        responses: {
+            /** @description Successful Response */
+            202: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["PrintJobResponse"];
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    create_document_print_job_v1_print_jobs_documents_post: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["DocumentPrintJobCreateRequest"];
             };
         };
         responses: {

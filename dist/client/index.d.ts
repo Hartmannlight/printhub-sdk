@@ -145,6 +145,23 @@ export declare const createPrinthubSdk: (config: PrinthubSdkConfig) => {
             created_at: string;
             updated_at: string;
         }>;
+        createDocument: (body: import("./types").DocumentPrintJobCreateRequest) => Promise<{
+            id: string;
+            status: string;
+            printer_id: string;
+            template_id?: string | null;
+            source_kind: string;
+            page_count?: number | null;
+            attempts: number;
+            bytes_sent?: number | null;
+            downstream_job_id?: string | null;
+            downstream_job_state?: string | null;
+            preview_png_base64?: string | null;
+            warning?: string | null;
+            error?: string | null;
+            created_at: string;
+            updated_at: string;
+        }>;
         release: (jobId: string, body: import("./types").RasterPrintJobReleaseRequest) => Promise<{
             id: string;
             status: string;

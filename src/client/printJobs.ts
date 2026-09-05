@@ -1,6 +1,7 @@
 import type {
   PrintJobCreateRequest,
   PrintJobResponse,
+  DocumentPrintJobCreateRequest,
   RasterPrintJobCreateRequest,
   RasterPrintJobReleaseRequest,
 } from "./types";
@@ -16,6 +17,8 @@ export const createPrintJobsClient = ({ generated }: PrinthubSdkDependencies) =>
     unwrap<PrintJobResponse>(generated.POST("/v1/print-jobs", { body })),
   createRaster: (body: RasterPrintJobCreateRequest) =>
     unwrap<PrintJobResponse>(generated.POST("/v1/print-jobs/raster", { body })),
+  createDocument: (body: DocumentPrintJobCreateRequest) =>
+    unwrap<PrintJobResponse>(generated.POST("/v1/print-jobs/documents", { body })),
   release: (jobId: string, body: RasterPrintJobReleaseRequest) =>
     unwrap<PrintJobResponse>(generated.POST("/v1/print-jobs/{job_id}/release", {
       params: { path: { job_id: jobId } },

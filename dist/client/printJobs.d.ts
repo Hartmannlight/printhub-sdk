@@ -1,4 +1,4 @@
-import type { PrintJobCreateRequest, RasterPrintJobCreateRequest, RasterPrintJobReleaseRequest } from "./types";
+import type { PrintJobCreateRequest, DocumentPrintJobCreateRequest, RasterPrintJobCreateRequest, RasterPrintJobReleaseRequest } from "./types";
 import type { PrinthubSdkDependencies } from "./core";
 export declare const createPrintJobsClient: ({ generated }: PrinthubSdkDependencies) => {
     list: (limit?: number) => Promise<{
@@ -53,6 +53,23 @@ export declare const createPrintJobsClient: ({ generated }: PrinthubSdkDependenc
         updated_at: string;
     }>;
     createRaster: (body: RasterPrintJobCreateRequest) => Promise<{
+        id: string;
+        status: string;
+        printer_id: string;
+        template_id?: string | null;
+        source_kind: string;
+        page_count?: number | null;
+        attempts: number;
+        bytes_sent?: number | null;
+        downstream_job_id?: string | null;
+        downstream_job_state?: string | null;
+        preview_png_base64?: string | null;
+        warning?: string | null;
+        error?: string | null;
+        created_at: string;
+        updated_at: string;
+    }>;
+    createDocument: (body: DocumentPrintJobCreateRequest) => Promise<{
         id: string;
         status: string;
         printer_id: string;
