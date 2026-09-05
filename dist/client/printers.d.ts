@@ -1,4 +1,4 @@
-import type { PrintTemplateRequest, PrintZplRequest, PrinterRegistrationRequest, PrinterSettingsRequest } from "./types";
+import type { PrintZplRequest, PrinterRegistrationRequest, PrinterSettingsRequest } from "./types";
 import type { PrinthubSdkDependencies } from "./core";
 export declare const createPrintersClient: ({ generated }: PrinthubSdkDependencies) => {
     list: () => Promise<{
@@ -40,13 +40,6 @@ export declare const createPrintersClient: ({ generated }: PrinthubSdkDependenci
         };
     }>;
     printZpl: (printerId: string, body: PrintZplRequest) => Promise<{
-        printer_id: string;
-        bytes_sent: number;
-        preview_png_base64?: string | null;
-        job_id?: string | null;
-        job_state?: string | null;
-    }>;
-    printTemplate: (printerId: string, body: PrintTemplateRequest) => Promise<{
         printer_id: string;
         bytes_sent: number;
         preview_png_base64?: string | null;

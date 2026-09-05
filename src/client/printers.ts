@@ -1,4 +1,4 @@
-import type { PrintResponse, PrintTemplateRequest, PrintZplRequest, PrintersConfigResponse, PrinterStatusResponse, PrinterRegistrationRequest, PrinterSettingsRequest } from "./types";
+import type { PrintResponse, PrintZplRequest, PrintersConfigResponse, PrinterStatusResponse, PrinterRegistrationRequest, PrinterSettingsRequest } from "./types";
 import type { PrinthubSdkDependencies } from "./core";
 import { unwrap } from "./core";
 
@@ -28,9 +28,5 @@ export const createPrintersClient = ({ generated }: PrinthubSdkDependencies) => 
   printZpl: (printerId: string, body: PrintZplRequest) =>
     unwrap<PrintResponse>(
       generated.POST("/v1/printers/{printer_id}/prints/zpl", { params: { path: { printer_id: printerId } }, body })
-    ),
-  printTemplate: (printerId: string, body: PrintTemplateRequest) =>
-    unwrap<PrintResponse>(
-      generated.POST("/v1/printers/{printer_id}/prints/template", { params: { path: { printer_id: printerId } }, body })
     ),
 });

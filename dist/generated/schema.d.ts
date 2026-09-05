@@ -540,7 +540,11 @@ export interface components {
             /** Printer Id */
             printer_id: string;
             /** Template Id */
-            template_id: string;
+            template_id?: string | null;
+            /** Template */
+            template?: {
+                [key: string]: unknown;
+            } | null;
             /** Variables */
             variables?: {
                 [key: string]: unknown;

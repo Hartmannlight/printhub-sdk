@@ -68,13 +68,6 @@ export declare const createPrinthubSdk: (config: PrinthubSdkConfig) => {
             job_id?: string | null;
             job_state?: string | null;
         }>;
-        printTemplate: (printerId: string, body: import("./types").PrintTemplateRequest) => Promise<{
-            printer_id: string;
-            bytes_sent: number;
-            preview_png_base64?: string | null;
-            job_id?: string | null;
-            job_state?: string | null;
-        }>;
     };
     printJobs: {
         list: (limit?: number) => Promise<{
