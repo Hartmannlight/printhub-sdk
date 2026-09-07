@@ -322,6 +322,25 @@ export interface components {
             origin?: string | null;
             /** Origin Reference */
             origin_reference?: string | null;
+            /**
+             * Override Label Limit
+             * @default false
+             */
+            override_label_limit: boolean;
+        };
+        /** DownstreamJobResponse */
+        DownstreamJobResponse: {
+            /** Id */
+            id: string;
+            /** State */
+            state: string;
+            /**
+             * Bytes Accepted
+             * @default 0
+             */
+            bytes_accepted: number;
+            /** Error */
+            error?: string | null;
         };
         /** HTTPValidationError */
         HTTPValidationError: {
@@ -419,10 +438,18 @@ export interface components {
             downstream_job_id?: string | null;
             /** Downstream Job State */
             downstream_job_state?: string | null;
+            /** Downstream Jobs */
+            downstream_jobs?: components["schemas"]["DownstreamJobResponse"][];
             /** Preview Png Base64 */
             preview_png_base64?: string | null;
             /** Warning */
             warning?: string | null;
+            /** Hold Reason */
+            hold_reason?: string | null;
+            /** Requested Labels */
+            requested_labels?: number | null;
+            /** Max Labels */
+            max_labels?: number | null;
             /** Error */
             error?: string | null;
             /** Created At */
@@ -480,10 +507,20 @@ export interface components {
             origin?: string | null;
             /** Origin Reference */
             origin_reference?: string | null;
+            /**
+             * Override Label Limit
+             * @default false
+             */
+            override_label_limit: boolean;
         };
         /** RasterPrintJobReleaseRequest */
         RasterPrintJobReleaseRequest: {
             scaling: components["schemas"]["ScalingPolicy"];
+            /**
+             * Override Label Limit
+             * @default false
+             */
+            override_label_limit: boolean;
         };
         /** RenderDiagnostic */
         RenderDiagnostic: {
