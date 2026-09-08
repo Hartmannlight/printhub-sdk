@@ -148,5 +148,26 @@ export declare const createPrintJobsClient: ({ generated }: PrinthubSdkDependenc
         created_at: string;
         updated_at: string;
     }>;
+    cancel: (jobId: string) => Promise<{
+        id: string;
+        status: string;
+        printer_id: string;
+        template_id?: string | null;
+        source_kind: string;
+        page_count?: number | null;
+        attempts: number;
+        bytes_sent?: number | null;
+        downstream_job_id?: string | null;
+        downstream_job_state?: string | null;
+        downstream_jobs?: import("../generated/schema").components["schemas"]["DownstreamJobResponse"][];
+        preview_png_base64?: string | null;
+        warning?: string | null;
+        hold_reason?: string | null;
+        requested_labels?: number | null;
+        max_labels?: number | null;
+        error?: string | null;
+        created_at: string;
+        updated_at: string;
+    }>;
 };
 //# sourceMappingURL=printJobs.d.ts.map

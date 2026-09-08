@@ -192,6 +192,40 @@ export interface paths {
         patch?: never;
         trace?: never;
     };
+    "/v1/print-jobs/{job_id}/cancel": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        /** Cancel Print Job */
+        post: operations["cancel_print_job_v1_print_jobs__job_id__cancel_post"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/v1/print-jobs/{job_id}/reprint": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        /** Reprint Print Job */
+        post: operations["reprint_print_job_v1_print_jobs__job_id__reprint_post"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
     "/v1/templates": {
         parameters: {
             query?: never;
@@ -256,6 +290,178 @@ export interface paths {
         get: operations["get_printers_v1_printers_get"];
         put?: never;
         post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/v1/ipp-shares": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /** Get Ipp Shares */
+        get: operations["get_ipp_shares_v1_ipp_shares_get"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/v1/ipp-shares/{queue_id}": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        /** Put Ipp Share */
+        put: operations["put_ipp_share_v1_ipp_shares__queue_id__put"];
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        /** Patch Ipp Share */
+        patch: operations["patch_ipp_share_v1_ipp_shares__queue_id__patch"];
+        trace?: never;
+    };
+    "/v1/printer-services": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /** Get Printer Services */
+        get: operations["get_printer_services_v1_printer_services_get"];
+        put?: never;
+        /** Add Printer Service */
+        post: operations["add_printer_service_v1_printer_services_post"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/v1/printer-services/{connection_id}": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        /** Update Printer Service */
+        patch: operations["update_printer_service_v1_printer_services__connection_id__patch"];
+        trace?: never;
+    };
+    "/v1/printers/{printer_id}/catalog": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        /** Update Printer Catalog */
+        patch: operations["update_printer_catalog_v1_printers__printer_id__catalog_patch"];
+        trace?: never;
+    };
+    "/v1/printer-services/{connection_id}/printers/{printer_id}": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        /** Save Zebra Service Printer */
+        post: operations["save_zebra_service_printer_v1_printer_services__connection_id__printers__printer_id__post"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/v1/printer-services/{connection_id}/usb-devices": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /** Discover Service Usb Printers */
+        get: operations["discover_service_usb_printers_v1_printer_services__connection_id__usb_devices_get"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/v1/printer-services/{connection_id}/printers/{printer_id}/media": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        /** Load Zebra Service Media */
+        put: operations["load_zebra_service_media_v1_printer_services__connection_id__printers__printer_id__media_put"];
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/v1/printer-services/{connection_id}/printers/{printer_id}/queue/{action}": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        /** Control Service Printer Queue */
+        post: operations["control_service_printer_queue_v1_printer_services__connection_id__printers__printer_id__queue__action__post"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/v1/printer-services/{connection_id}/printers/{printer_id}/maintenance/{action}": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        /** Maintain Service Printer */
+        post: operations["maintain_service_printer_v1_printer_services__connection_id__printers__printer_id__maintenance__action__post"];
         delete?: never;
         options?: never;
         head?: never;
@@ -348,6 +554,23 @@ export interface components {
             /** Detail */
             detail?: components["schemas"]["ValidationError"][];
         };
+        /** IppShareSaveRequest */
+        IppShareSaveRequest: {
+            /** Printer Id */
+            printer_id: string;
+            /** Display Name */
+            display_name: string;
+            /**
+             * Enabled
+             * @default true
+             */
+            enabled: boolean;
+        };
+        /** IppShareUpdateRequest */
+        IppShareUpdateRequest: {
+            /** Enabled */
+            enabled: boolean;
+        };
         /** PrintDraftCreateRequest */
         PrintDraftCreateRequest: {
             /** Template */
@@ -407,6 +630,12 @@ export interface components {
                 [key: string]: unknown;
             };
             target?: components["schemas"]["RenderTarget"] | null;
+            /**
+             * Output Mode
+             * @default auto
+             * @enum {string}
+             */
+            output_mode: "auto" | "native" | "raster";
             /** Idempotency Key */
             idempotency_key?: string | null;
             /** Origin */
@@ -457,6 +686,38 @@ export interface components {
             created_at: string;
             /** Updated At */
             updated_at: string;
+        };
+        /** PrinterCatalogUpdateRequest */
+        PrinterCatalogUpdateRequest: {
+            /** Display Name */
+            display_name?: string | null;
+            /** Visible */
+            visible?: boolean | null;
+            /** Default */
+            default?: boolean | null;
+        };
+        /** PrinterServiceCreateRequest */
+        PrinterServiceCreateRequest: {
+            /** Display Name */
+            display_name: string;
+            /** Base Url */
+            base_url: string;
+            /**
+             * Token
+             * Format: password
+             */
+            token: string;
+        };
+        /** PrinterServiceUpdateRequest */
+        PrinterServiceUpdateRequest: {
+            /** Display Name */
+            display_name?: string | null;
+            /** Base Url */
+            base_url?: string | null;
+            /** Token */
+            token?: string | null;
+            /** Enabled */
+            enabled?: boolean | null;
         };
         /** PrintersConfigResponse */
         PrintersConfigResponse: {
@@ -589,6 +850,11 @@ export interface components {
              */
             origin_y_mm: number;
         };
+        /** ReprintRequest */
+        ReprintRequest: {
+            /** Idempotency Key */
+            idempotency_key: string;
+        };
         /**
          * ScalingPolicy
          * @description How a document page is mapped to the loaded label.
@@ -673,6 +939,36 @@ export interface components {
             input?: unknown;
             /** Context */
             ctx?: Record<string, never>;
+        };
+        /** ZebraPrinterSaveRequest */
+        ZebraPrinterSaveRequest: {
+            /** Display Name */
+            display_name: string;
+            /**
+             * Enabled
+             * @default true
+             */
+            enabled: boolean;
+            /** Transport */
+            transport: string;
+            /** Tcp Host */
+            tcp_host?: string | null;
+            /**
+             * Tcp Port
+             * @default 9100
+             */
+            tcp_port: number;
+            /**
+             * Device
+             * @default
+             */
+            device: string;
+            /** Usb Vendor Id */
+            usb_vendor_id?: number | null;
+            /** Usb Product Id */
+            usb_product_id?: number | null;
+            /** Usb Serial */
+            usb_serial?: string | null;
         };
     };
     responses: never;
@@ -1062,6 +1358,74 @@ export interface operations {
             };
         };
     };
+    cancel_print_job_v1_print_jobs__job_id__cancel_post: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                job_id: string;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["PrintJobResponse"];
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    reprint_print_job_v1_print_jobs__job_id__reprint_post: {
+        parameters: {
+            query?: never;
+            header?: {
+                authorization?: string | null;
+            };
+            path: {
+                job_id: string;
+            };
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["ReprintRequest"];
+            };
+        };
+        responses: {
+            /** @description Successful Response */
+            202: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["PrintJobResponse"];
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
     list_template_entries_v1_templates_get: {
         parameters: {
             query?: {
@@ -1239,6 +1603,445 @@ export interface operations {
                 };
                 content: {
                     "application/json": components["schemas"]["PrintersConfigResponse"];
+                };
+            };
+        };
+    };
+    get_ipp_shares_v1_ipp_shares_get: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        [key: string]: unknown;
+                    };
+                };
+            };
+        };
+    };
+    put_ipp_share_v1_ipp_shares__queue_id__put: {
+        parameters: {
+            query?: never;
+            header?: {
+                authorization?: string | null;
+            };
+            path: {
+                queue_id: string;
+            };
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["IppShareSaveRequest"];
+            };
+        };
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        [key: string]: unknown;
+                    };
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    patch_ipp_share_v1_ipp_shares__queue_id__patch: {
+        parameters: {
+            query?: never;
+            header?: {
+                authorization?: string | null;
+            };
+            path: {
+                queue_id: string;
+            };
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["IppShareUpdateRequest"];
+            };
+        };
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        [key: string]: unknown;
+                    };
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    get_printer_services_v1_printer_services_get: {
+        parameters: {
+            query?: never;
+            header?: {
+                authorization?: string | null;
+            };
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        [key: string]: unknown;
+                    };
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    add_printer_service_v1_printer_services_post: {
+        parameters: {
+            query?: never;
+            header?: {
+                authorization?: string | null;
+            };
+            path?: never;
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["PrinterServiceCreateRequest"];
+            };
+        };
+        responses: {
+            /** @description Successful Response */
+            201: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        [key: string]: unknown;
+                    };
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    update_printer_service_v1_printer_services__connection_id__patch: {
+        parameters: {
+            query?: never;
+            header?: {
+                authorization?: string | null;
+            };
+            path: {
+                connection_id: string;
+            };
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["PrinterServiceUpdateRequest"];
+            };
+        };
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        [key: string]: unknown;
+                    };
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    update_printer_catalog_v1_printers__printer_id__catalog_patch: {
+        parameters: {
+            query?: never;
+            header?: {
+                authorization?: string | null;
+            };
+            path: {
+                printer_id: string;
+            };
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["PrinterCatalogUpdateRequest"];
+            };
+        };
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        [key: string]: unknown;
+                    };
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    save_zebra_service_printer_v1_printer_services__connection_id__printers__printer_id__post: {
+        parameters: {
+            query?: never;
+            header?: {
+                authorization?: string | null;
+            };
+            path: {
+                connection_id: string;
+                printer_id: string;
+            };
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["ZebraPrinterSaveRequest"];
+            };
+        };
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        [key: string]: unknown;
+                    };
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    discover_service_usb_printers_v1_printer_services__connection_id__usb_devices_get: {
+        parameters: {
+            query?: never;
+            header?: {
+                authorization?: string | null;
+            };
+            path: {
+                connection_id: string;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        [key: string]: unknown;
+                    };
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    load_zebra_service_media_v1_printer_services__connection_id__printers__printer_id__media_put: {
+        parameters: {
+            query?: never;
+            header?: {
+                authorization?: string | null;
+            };
+            path: {
+                connection_id: string;
+                printer_id: string;
+            };
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": {
+                    [key: string]: unknown;
+                };
+            };
+        };
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        [key: string]: unknown;
+                    };
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    control_service_printer_queue_v1_printer_services__connection_id__printers__printer_id__queue__action__post: {
+        parameters: {
+            query?: never;
+            header?: {
+                authorization?: string | null;
+            };
+            path: {
+                connection_id: string;
+                printer_id: string;
+                action: string;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        [key: string]: unknown;
+                    };
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    maintain_service_printer_v1_printer_services__connection_id__printers__printer_id__maintenance__action__post: {
+        parameters: {
+            query?: never;
+            header?: {
+                authorization?: string | null;
+            };
+            path: {
+                connection_id: string;
+                printer_id: string;
+                action: string;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        [key: string]: unknown;
+                    };
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
                 };
             };
         };

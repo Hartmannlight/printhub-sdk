@@ -26,4 +26,6 @@ export const createPrintJobsClient = ({ generated }: PrinthubSdkDependencies) =>
     })),
   retry: (jobId: string) =>
     unwrap<PrintJobResponse>(generated.POST("/v1/print-jobs/{job_id}/retry", { params: { path: { job_id: jobId } } })),
+  cancel: (jobId: string) =>
+    unwrap<PrintJobResponse>(generated.POST("/v1/print-jobs/{job_id}/cancel", { params: { path: { job_id: jobId } } })),
 });

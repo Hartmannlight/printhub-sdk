@@ -10,5 +10,6 @@ export const createPrintJobsClient = ({ generated }) => ({
         body,
     })),
     retry: (jobId) => unwrap(generated.POST("/v1/print-jobs/{job_id}/retry", { params: { path: { job_id: jobId } } })),
+    cancel: (jobId) => unwrap(generated.POST("/v1/print-jobs/{job_id}/cancel", { params: { path: { job_id: jobId } } })),
 });
 //# sourceMappingURL=printJobs.js.map
