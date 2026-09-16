@@ -33,7 +33,7 @@
     "prepack": "npm run ci"
   },
   "dependencies": {
-    "openapi-fetch": "^0.12.1"
+    "openapi-fetch": "^0.17.0"
   },
   "devDependencies": {
     "openapi-typescript": "^7.13.0",
