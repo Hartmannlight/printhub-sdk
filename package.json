@@ -21,7 +21,7 @@
   "engines": {
     "node": ">=20"
   },
-  "packageManager": "npm@10.9.2",
+  "packageManager": "npm@10.9.9",
   "scripts": {
     "generate": "openapi-typescript openapi/printhub-openapi.json -o src/generated/schema.ts",
     "build": "npm run generate && tsc -p tsconfig.json",
