@@ -14,5 +14,14 @@
         "# renovate: datasource=(?<datasource>\\S+) depName=(?<depName>\\S+)\\s+(?:ARG [A-Z_]+=|version: |POETRY_VERSION: |TRIVY_VERSION: )(?<currentValue>[^\\s]+)"
       ]
     }
+  ],
+  "packageRules": [
+    {
+      "description": "openapi-typescript 7 requires TypeScript ^5.x; revisit with a generator that supports newer compilers.",
+      "matchPackageNames": [
+        "typescript"
+      ],
+      "allowedVersions": "<6"
+    }
   ]
 }
