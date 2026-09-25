@@ -225,6 +225,23 @@ export interface paths {
         patch?: never;
         trace?: never;
     };
+    "/v1/template-assistant/generate": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        /** Generate Template With Ai */
+        post: operations["generate_template_with_ai_v1_template_assistant_generate_post"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
     "/v1/templates": {
         parameters: {
             query?: never;
@@ -259,6 +276,57 @@ export interface paths {
         options?: never;
         head?: never;
         patch?: never;
+        trace?: never;
+    };
+    "/v1/template-preview-settings": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /** Get Template Preview Settings */
+        get: operations["get_template_preview_settings_v1_template_preview_settings_get"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/v1/templates/previews/regenerate": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        /** Regenerate Template Previews */
+        post: operations["regenerate_template_previews_v1_templates_previews_regenerate_post"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/v1/templates/{template_id}/metadata": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        /** Update Template Metadata */
+        patch: operations["update_template_metadata_v1_templates__template_id__metadata_patch"];
         trace?: never;
     };
     "/v1/templates/{template_id}/preview": {
@@ -860,12 +928,70 @@ export interface components {
          * @enum {string}
          */
         ScalingPolicy: "hold" | "fit" | "fill";
+        /** TemplateAIGenerateRequest */
+        TemplateAIGenerateRequest: {
+            /** Prompt */
+            prompt: string;
+            target: components["schemas"]["RenderTarget"];
+            /**
+             * Use Existing
+             * @default false
+             */
+            use_existing: boolean;
+            /** Reference Ids */
+            reference_ids?: string[];
+        };
+        /** TemplateAIGenerateResponse */
+        TemplateAIGenerateResponse: {
+            /** Name */
+            name: string;
+            /** Description */
+            description: string;
+            /** Usage Context */
+            usage_context: string;
+            /** Tags */
+            tags: string[];
+            /** Variables */
+            variables: {
+                [key: string]: unknown;
+            }[];
+            /** Sample Data */
+            sample_data: {
+                [key: string]: unknown;
+            };
+            /** Print Defaults */
+            print_defaults: {
+                [key: string]: unknown;
+            };
+            /** Template */
+            template: {
+                [key: string]: unknown;
+            };
+            /** Preview Target */
+            preview_target: {
+                [key: string]: unknown;
+            };
+            /** Reference Ids */
+            reference_ids: string[];
+            /** Preview Png Base64 */
+            preview_png_base64?: string | null;
+            /** Preview Error */
+            preview_error?: string | null;
+        };
         /** TemplateDetailResponse */
         TemplateDetailResponse: {
             /** Id */
             id: string;
             /** Name */
             name: string;
+            /** Description */
+            description: string;
+            /** Usage Context */
+            usage_context: string;
+            /** Favorite */
+            favorite: boolean;
+            /** Archived */
+            archived: boolean;
             /** Tags */
             tags: string[];
             /** Variables */
@@ -886,6 +1012,16 @@ export interface components {
             sample_data: {
                 [key: string]: unknown;
             };
+            /** Print Defaults */
+            print_defaults: {
+                [key: string]: unknown;
+            };
+            /** Created At */
+            created_at: string;
+            /** Updated At */
+            updated_at: string;
+            /** Preview Warning */
+            preview_warning?: string | null;
         };
         /** TemplateListItem */
         TemplateListItem: {
@@ -893,6 +1029,14 @@ export interface components {
             id: string;
             /** Name */
             name: string;
+            /** Description */
+            description: string;
+            /** Usage Context */
+            usage_context: string;
+            /** Favorite */
+            favorite: boolean;
+            /** Archived */
+            archived: boolean;
             /** Tags */
             tags: string[];
             /** Variables */
@@ -905,11 +1049,69 @@ export interface components {
             };
             /** Preview Available */
             preview_available: boolean;
+            /** Created At */
+            created_at: string;
+            /** Updated At */
+            updated_at: string;
+        };
+        /** TemplateMetadataPatchRequest */
+        TemplateMetadataPatchRequest: {
+            /** Description */
+            description?: string | null;
+            /** Usage Context */
+            usage_context?: string | null;
+            /** Favorite */
+            favorite?: boolean | null;
+            /** Archived */
+            archived?: boolean | null;
+            /** Tags */
+            tags?: string[] | null;
+        };
+        /** TemplatePreviewRegenerateRequest */
+        TemplatePreviewRegenerateRequest: {
+            /** Template Ids */
+            template_ids: string[];
+        };
+        /** TemplatePreviewRegenerateResponse */
+        TemplatePreviewRegenerateResponse: {
+            /** Regenerated */
+            regenerated: string[];
+            /** Failed */
+            failed: {
+                [key: string]: string;
+            };
+        };
+        /** TemplatePreviewSettingsResponse */
+        TemplatePreviewSettingsResponse: {
+            /** Stored Enabled */
+            stored_enabled: boolean;
+            /** Live Enabled */
+            live_enabled: boolean;
         };
         /** TemplateSaveRequest */
         TemplateSaveRequest: {
             /** Name */
             name: string;
+            /**
+             * Description
+             * @default
+             */
+            description: string;
+            /**
+             * Usage Context
+             * @default
+             */
+            usage_context: string;
+            /**
+             * Favorite
+             * @default false
+             */
+            favorite: boolean;
+            /**
+             * Archived
+             * @default false
+             */
+            archived: boolean;
             /** Tags */
             tags?: string[];
             /** Variables */
@@ -922,6 +1124,10 @@ export interface components {
             };
             /** Sample Data */
             sample_data: {
+                [key: string]: unknown;
+            };
+            /** Print Defaults */
+            print_defaults?: {
                 [key: string]: unknown;
             };
             preview_target: components["schemas"]["RenderTarget"];
@@ -1425,6 +1631,41 @@ export interface operations {
             };
         };
     };
+    generate_template_with_ai_v1_template_assistant_generate_post: {
+        parameters: {
+            query?: never;
+            header?: {
+                authorization?: string | null;
+            };
+            path?: never;
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["TemplateAIGenerateRequest"];
+            };
+        };
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["TemplateAIGenerateResponse"];
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
     list_template_entries_v1_templates_get: {
         parameters: {
             query?: {
@@ -1542,6 +1783,96 @@ export interface operations {
                 };
                 content: {
                     "application/json": components["schemas"]["TemplateDetailResponse"];
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    get_template_preview_settings_v1_template_preview_settings_get: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["TemplatePreviewSettingsResponse"];
+                };
+            };
+        };
+    };
+    regenerate_template_previews_v1_templates_previews_regenerate_post: {
+        parameters: {
+            query?: never;
+            header?: {
+                authorization?: string | null;
+            };
+            path?: never;
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["TemplatePreviewRegenerateRequest"];
+            };
+        };
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["TemplatePreviewRegenerateResponse"];
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    update_template_metadata_v1_templates__template_id__metadata_patch: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                template_id: string;
+            };
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["TemplateMetadataPatchRequest"];
+            };
+        };
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["TemplateListItem"];
                 };
             };
             /** @description Validation Error */
