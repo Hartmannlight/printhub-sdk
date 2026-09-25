@@ -16,6 +16,17 @@ export const createTemplatesClient = ({ generated, config }: PrinthubSdkDependen
     unwrap<TemplateDetailResponse>(
       generated.PUT("/v1/templates/{template_id}", { params: { path: { template_id: templateId } }, body })
     ),
+  updateMetadata: (templateId: string, body: {
+    description?: string;
+    usage_context?: string;
+    favorite?: boolean;
+    archived?: boolean;
+    tags?: string[];
+  }) => unwrap<TemplateListItem>(
+    generated.PATCH("/v1/templates/{template_id}/metadata", {
+      params: { path: { template_id: templateId } }, body,
+    })
+  ),
   getPreview: async (templateId: string) => {
     const response = await (config.fetch ?? fetch)(
       `${normalizeBaseUrl(config.baseUrl)}/v1/templates/${encodeURIComponent(templateId)}/preview`,
