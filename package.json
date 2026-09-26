@@ -19,7 +19,7 @@
     "CHANGELOG.md"
   ],
   "engines": {
-    "node": ">=20.20.2"
+    "node": ">=24.21.0"
   },
   "packageManager": "npm@10.9.9",
   "scripts": {
